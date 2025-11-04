@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "finalproject_antoshina_25_555"
+version = "0.1.0"
+description = "Консольное приложение для управления валютным кошельком"
+authors = ["Antoshina <your-email@example.com>"]
+readme = "README.md"
+
+packages = [
+    {include = "valutatrade_hub"},
+    {include = "main.py"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+prettytable = "^3.9.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.0"
+
+[tool.poetry.scripts]
+project = "main:main"
+
+[tool.ruff]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-background = "poetry.core.masonry.api"
