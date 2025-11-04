@@ -35,3 +35,19 @@ ignore = [
 [build-system]
 requires = ["poetry-core"]
 build-background = "poetry.core.masonry.api"
+
+[tool.valutatrade]
+data_directory = "data"
+rates_ttl_seconds = 300
+default_base_currency = "USD"
+log_level = "INFO"
+log_file = "logs/valutatrade.log"
+max_log_size_mb = 10
+backup_count = 5
+
+# API keys
+exchangerate_api_key = "37ad3540dcf011478170ac93"
+coingecko_api_key = ""
+
+# Parser settings
+parser_update_interval = 5

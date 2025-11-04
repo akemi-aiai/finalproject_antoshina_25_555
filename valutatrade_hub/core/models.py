@@ -3,6 +3,10 @@ import secrets
 from datetime import datetime
 from typing import Dict, Optional
 
+from ..decorators import log_action, log_transaction
+from .currencies import CurrencyNotFoundError, get_currency
+from .exceptions import InsufficientFundsError, ValidationError
+
 
 class User:
     def __init__(self, user_id: int, username: str, password: str,
@@ -24,7 +28,9 @@ class User:
     @username.setter
     def username(self, value: str):
         if not value or not isinstance(value, str):
-            raise ValueError("Имя пользователя не может быть пустым")
+            raise ValidationError("Имя пользователя не может быть пустым")
+        if len(value.strip()) < 3:
+            raise ValidationError("Имя пользователя должно содержать не менее 3 символов")
         self._username = value
 
     @property
@@ -44,9 +50,10 @@ class User:
 
     def _hash_password(self, password: str, salt: str) -> str:
         if len(password) < 4:
-            raise ValueError("Пароль должен содержать не менее 4 символов")
+            raise ValidationError("Пароль должен содержать не менее 4 символов")
         return hashlib.sha256((password + salt).encode()).hexdigest()
 
+    @log_action("Получение информации о пользователе")
     def get_user_info(self) -> dict:
         return {
             "user_id": self._user_id,
@@ -54,6 +61,7 @@ class User:
             "registration_date": self._registration_date.isoformat()
         }
 
+    @log_action("Смена пароля")
     def change_password(self, new_password: str):
         self._hashed_password = self._hash_password(new_password, self._salt)
 
@@ -85,8 +93,21 @@ class User:
 
 class Wallet:
     def __init__(self, currency_code: str, balance: float = 0.0):
-        self.currency_code = currency_code.upper()
+        # Валидация и получение информации о валюте
+        try:
+            self._currency = get_currency(currency_code)
+        except CurrencyNotFoundError:
+            raise ValidationError(f"Неизвестная валюта '{currency_code}'")
+
         self._balance = balance
+
+    @property
+    def currency_code(self) -> str:
+        return self._currency.code
+
+    @property
+    def currency(self):
+        return self._currency
 
     @property
     def balance(self) -> float:
@@ -95,27 +116,36 @@ class Wallet:
     @balance.setter
     def balance(self, value: float):
         if not isinstance(value, (int, float)):
-            raise ValueError("Баланс должен быть числом")
+            raise ValidationError("Баланс должен быть числом")
         if value < 0:
-            raise ValueError("Баланс не может быть отрицательным")
+            raise ValidationError("Баланс не может быть отрицательным")
         self._balance = float(value)
 
+    @log_transaction()
     def deposit(self, amount: float):
         if amount <= 0:
-            raise ValueError("Сумма пополнения должна быть положительной")
+            raise ValidationError("Сумма пополнения должна быть положительной")
         self.balance += amount
 
+    @log_transaction()
     def withdraw(self, amount: float):
         if amount <= 0:
-            raise ValueError("Сумма снятия должна быть положительной")
+            raise ValidationError("Сумма снятия должна быть положительной")
         if amount > self.balance:
-            raise ValueError(f"Недостаточно средств: доступно {self.balance} {self.currency_code}, требуется {amount}")
+            raise InsufficientFundsError(
+                available=self.balance,
+                required=amount,
+                currency_code=self.currency_code
+            )
         self.balance -= amount
 
+    @log_action("Получение информации о балансе")
     def get_balance_info(self) -> dict:
         return {
             "currency_code": self.currency_code,
-            "balance": self._balance
+            "currency_name": self._currency.name,
+            "balance": self._balance,
+            "display_info": self._currency.get_display_info()
         }
 
     def to_dict(self) -> dict:
@@ -145,10 +175,15 @@ class Portfolio:
     def wallets(self) -> Dict[str, Wallet]:
         return self._wallets.copy()
 
+    @log_action("Добавление валюты в портфель")
     def add_currency(self, currency_code: str):
         currency_code = currency_code.upper()
         if currency_code in self._wallets:
-            raise ValueError(f"Кошелек для валюты {currency_code} уже существует")
+            raise ValidationError(f"Кошелек для валюты {currency_code} уже существует")
+
+        # Валидируем валюту через фабрику
+        get_currency(currency_code)
+
         self._wallets[currency_code] = Wallet(currency_code)
 
     def get_wallet(self, currency_code: str) -> Optional[Wallet]:
@@ -157,18 +192,26 @@ class Portfolio:
     def has_wallet(self, currency_code: str) -> bool:
         return currency_code.upper() in self._wallets
 
+    @log_action("Расчет общей стоимости портфеля")
     def get_total_value(self, base_currency: str = 'USD') -> float:
         from .usecases import ExchangeService
         exchange_service = ExchangeService()
         total_value = 0.0
+
+        # Валидируем базовую валюту
+        try:
+            get_currency(base_currency)
+        except CurrencyNotFoundError:
+            raise ValidationError(f"Неизвестная базовая валюта '{base_currency}'")
 
         for currency, wallet in self._wallets.items():
             if currency == base_currency:
                 total_value += wallet.balance
             else:
                 rate = exchange_service.get_exchange_rate(currency, base_currency)
-                if rate:
-                    total_value += wallet.balance * rate
+                if rate is None:
+                    raise ValidationError(f"Не удалось получить курс для {currency}→{base_currency}")
+                total_value += wallet.balance * rate
 
         return total_value
 

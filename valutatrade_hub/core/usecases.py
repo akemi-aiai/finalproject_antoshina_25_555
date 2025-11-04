@@ -1,315 +1,258 @@
-import cmd
-import shlex
+from typing import List, Optional, Tuple
 
-from prettytable import PrettyTable
+from ..decorators import log_action
+from ..infra.database import db
+from ..logging_config import logger
+from .exceptions import (
+    ApiRequestError,
+    AuthenticationError,
+    CurrencyNotFoundError,
+    InsufficientFundsError,
+    UserNotFoundError,
+    ValidationError,
+)
+from .exchange_service import ExchangeService
+from .models import Portfolio, User
 
-from ..core.usecases import ExchangeService, PortfolioManager, UserManager
-from ..core.utils import format_currency_amount
+
+class UserManager:
+    def __init__(self, data_file: str = None):
+        self.data_file = data_file
+
+    def _load_users(self) -> List[User]:
+        """Загружает пользователей из базы данных"""
+        data = db.load_data("users")
+        return [User.from_dict(user_data) for user_data in data]
+
+    def _save_users(self, users: List[User]):
+        """Сохраняет пользователей в базу данных"""
+        data = [user.to_dict() for user in users]
+        db.save_data("users", data)
+
+    @log_action("CHECK_USERNAME", verbose=False)
+    def is_username_taken(self, username: str) -> bool:
+        """Проверяет, занято ли имя пользователя"""
+        users = self._load_users()
+        return any(user.username == username for user in users)
+
+    @log_action("REGISTER", verbose=True)
+    def create_user(self, username: str, password: str) -> User:
+        """Создает нового пользователя"""
+        if self.is_username_taken(username):
+            raise ValidationError(f"Имя пользователя '{username}' уже занято")
+
+        users = self._load_users()
+
+        # Генерация нового ID
+        user_id = max([user.user_id for user in users], default=0) + 1
+
+        user = User(user_id, username, password)
+        users.append(user)
+        self._save_users(users)
+
+        # Создаем пустой портфель для пользователя
+        portfolio_manager = PortfolioManager()
+        portfolio_manager.create_portfolio(user_id)
+
+        logger.info(f"Зарегистрирован новый пользователь: {username} (ID: {user_id})")
+        return user
+
+    @log_action("GET_USER", verbose=False)
+    def get_user(self, username: str) -> Optional[User]:
+        users = self._load_users()
+        for user in users:
+            if user.username == username:
+                return user
+        return None
+
+    @log_action("LOGIN", verbose=True)
+    def authenticate_user(self, username: str, password: str) -> Optional[User]:
+        user = self.get_user(username)
+        if not user:
+            raise UserNotFoundError(username=username)
+
+        if not user.verify_password(password):
+            raise AuthenticationError("Неверный пароль")
+
+        logger.info(f"Успешная аутентификация пользователя: {username}")
+        return user
 
 
-class WalletCLI(cmd.Cmd):
-    intro = "Добро пожаловать в систему управления валютным кошельком!\nВведите 'help' для списка команд."
-    prompt = "wallet> "
-
-    def __init__(self):
-        super().__init__()
-        self.user_manager = UserManager()
-        self.portfolio_manager = PortfolioManager()
+class PortfolioManager:
+    def __init__(self, data_file: str = None):
+        self.data_file = data_file
         self.exchange_service = ExchangeService()
-        self.current_user = None
-        self.current_portfolio = None
 
-    def _parse_args(self, args: str) -> dict:
-        """Парсит аргументы в формате --key value"""
+    def _load_portfolios(self) -> List[Portfolio]:
+        """Загружает портфели из базы данных"""
+        data = db.load_data("portfolios")
+        return [Portfolio.from_dict(portfolio_data) for portfolio_data in data]
+
+    def _save_portfolios(self, portfolios: List[Portfolio]):
+        """Сохраняет портфели в базу данных"""
+        data = [portfolio.to_dict() for portfolio in portfolios]
+        db.save_data("portfolios", data)
+
+    @log_action("GET_PORTFOLIO", verbose=False)
+    def get_portfolio(self, user_id: int) -> Optional[Portfolio]:
+        portfolios = self._load_portfolios()
+        for portfolio in portfolios:
+            if portfolio.user_id == user_id:
+                return portfolio
+        return None
+
+    @log_action("CREATE_PORTFOLIO", verbose=True)
+    def create_portfolio(self, user_id: int) -> Portfolio:
+        portfolios = self._load_portfolios()
+        portfolio = Portfolio(user_id)
+        portfolios.append(portfolio)
+        self._save_portfolios(portfolios)
+        return portfolio
+
+    def ensure_portfolio(self, user_id: int) -> Portfolio:
+        portfolio = self.get_portfolio(user_id)
+        if not portfolio:
+            portfolio = self.create_portfolio(user_id)
+        return portfolio
+
+    @log_action("BUY", verbose=True)
+    def buy_currency(self, user_id: int, currency: str, amount: float) -> Tuple[float, float, float]:
+        """
+        Покупка валюты
+
+        Returns:
+            Tuple[старый_баланс, стоимость_в_USD, курс]
+        """
+        # Валидация суммы
+        if amount <= 0:
+            raise ValidationError("Сумма покупки должна быть положительной")
+
+        portfolio = self.get_portfolio(user_id)
+        if not portfolio:
+            portfolio = self.create_portfolio(user_id)
+
+        currency = currency.upper()
+
+        # Валидация валюты
+        from .currencies import get_currency
         try:
-            parts = shlex.split(args)
-            result = {}
-            i = 0
-            while i < len(parts):
-                if parts[i].startswith('--'):
-                    key = parts[i][2:]
-                    if i + 1 < len(parts) and not parts[i + 1].startswith('--'):
-                        result[key] = parts[i + 1]
-                        i += 2
-                    else:
-                        result[key] = True
-                        i += 1
-                else:
-                    i += 1
-            return result
-        except ValueError as e:
-            raise ValueError(f"Ошибка разбора аргументов: {e}") from e
+            currency_obj = get_currency(currency)
+        except CurrencyNotFoundError as e:
+            raise ValidationError(str(e))
 
+        # Создаем кошелек если его нет
+        if not portfolio.has_wallet(currency):
+            portfolio.add_currency(currency)
 
+        wallet = portfolio.get_wallet(currency)
+        old_balance = wallet.balance
 
-    def _check_auth(self) -> bool:
-        """Проверяет авторизацию пользователя"""
-        if not self.current_user:
-            print("Сначала выполните login")
-            return False
-        return True
+        # Выполняем пополнение
+        wallet.deposit(amount)
 
-    def do_register(self, args):
-        """Регистрация нового пользователя: register --username <name> --password <pass>"""
-        try:
-            parsed_args = self._parse_args(args)
-            username = parsed_args.get('username')
-            password = parsed_args.get('password')
+        # Рассчитываем стоимость покупки
+        rate = self.exchange_service.get_exchange_rate(currency, 'USD')
+        if rate is None:
+            raise ApiRequestError(f"Не удалось получить курс для {currency}→USD")
 
-            if not username or not password:
-                print("Использование: register --username <name> --password <pass>")
-                return
+        cost_usd = amount * rate
 
-            user = self.user_manager.create_user(username, password)
-            print(f"Пользователь '{username}' зарегистрирован (id={user.user_id}). Войдите: login --username {username} --password ****")
+        # Сохраняем изменения
+        portfolios = self._load_portfolios()
+        for i, p in enumerate(portfolios):
+            if p.user_id == user_id:
+                portfolios[i] = portfolio
+                break
+        self._save_portfolios(portfolios)
 
-        except ValueError as e:
-            print(f"Ошибка регистрации: {e}")
-        except Exception as e:
-            print(f"Неожиданная ошибка: {e}")
+        logger.info(f"Покупка валюты: пользователь {user_id}, {amount} {currency} по курсу {rate}")
 
-    def do_login(self, args):
-        """Вход в систему: login --username <name> --password <pass>"""
-        try:
-            parsed_args = self._parse_args(args)
-            username = parsed_args.get('username')
-            password = parsed_args.get('password')
+        return old_balance, cost_usd, rate
 
-            if not username or not password:
-                print("Использование: login --username <name> --password <pass>")
-                return
+    @log_action("SELL", verbose=True)
+    def sell_currency(self, user_id: int, currency: str, amount: float) -> Tuple[float, float, float]:
+        """
+        Продажа валюты
 
-            user = self.user_manager.authenticate_user(username, password)
+        Returns:
+            Tuple[старый_баланс, выручка_в_USD, курс]
+        """
+        # Валидация суммы
+        if amount <= 0:
+            raise ValidationError("Сумма продажи должна быть положительной")
 
-            if user:
-                self.current_user = user
-                self.current_portfolio = self.portfolio_manager.ensure_portfolio(user.user_id)
-                self.prompt = f"wallet[{username}]> "
-                print(f"Вы вошли как '{username}'")
-            else:
-                print("Неверное имя пользователя или пароль")
+        portfolio = self.get_portfolio(user_id)
+        if not portfolio:
+            raise UserNotFoundError(user_id=user_id)
 
-        except Exception as e:
-            print(f"Ошибка входа: {e}")
+        currency = currency.upper()
+        wallet = portfolio.get_wallet(currency)
 
-    def do_logout(self, args):
-        """Выход из системы: logout"""
-        self.current_user = None
-        self.current_portfolio = None
-        self.prompt = "wallet> "
-        print("Вы вышли из системы")
+        if not wallet:
+            raise ValidationError(f"У вас нет кошелька '{currency}'")
 
-    def do_show_portfolio(self, args):
-        """Показать портфель: show-portfolio [--base <currency>]"""
-        if not self._check_auth():
-            return
-
-        try:
-            parsed_args = self._parse_args(args)
-            base_currency = parsed_args.get('base', 'USD').upper()
-
-            # Проверяем валидность базовой валюты
-            if base_currency not in ['USD', 'EUR', 'BTC', 'ETH']:
-                print(f"Неизвестная базовая валюта '{base_currency}'")
-                return
-
-            portfolio = self.current_portfolio
-            wallets = portfolio.wallets
-
-            if not wallets:
-                print("Ваш портфель пуст. Используйте 'buy' для покупки валюты.")
-                return
-
-            table = PrettyTable()
-            table.field_names = ["Валюта", "Баланс", f"В {base_currency}"]
-            table.align = "r"
-            table.align["Валюта"] = "l"
-
-            total_value = 0.0
-
-            for currency, wallet in wallets.items():
-                balance = wallet.balance
-
-                if currency == base_currency:
-                    value_in_base = balance
-                else:
-                    rate = self.exchange_service.get_exchange_rate(currency, base_currency)
-                    if rate is None:
-                        print(f"Не удалось получить курс для {currency}→{base_currency}")
-                        return
-                    value_in_base = balance * rate
-
-                total_value += value_in_base
-
-                table.add_row([
-                    currency,
-                    format_currency_amount(balance, currency),
-                    format_currency_amount(value_in_base, base_currency)
-                ])
-
-            print(f"Портфель пользователя '{self.current_user.username}' (база: {base_currency}):")
-            print(table)
-            print("-" * 50)
-            print(f"ИТОГО: {format_currency_amount(total_value, base_currency)}")
-
-        except Exception as e:
-            print(f"Ошибка показа портфеля: {e}")
-
-    def do_buy(self, args):
-        """Купить валюту: buy --currency <code> --amount <number>"""
-        if not self._check_auth():
-            return
+        old_balance = wallet.balance
 
         try:
-            parsed_args = self._parse_args(args)
-            currency = parsed_args.get('currency')
-            amount_str = parsed_args.get('amount')
+            # Выполняем снятие
+            wallet.withdraw(amount)
+        except InsufficientFundsError:
+            logger.warning(f"Попытка продажи при недостаточных средствах: {currency} {amount}")
+            raise
 
-            if not currency or not amount_str:
-                print("Использование: buy --currency <code> --amount <number>")
-                return
+        # Рассчитываем выручку
+        rate = self.exchange_service.get_exchange_rate(currency, 'USD')
+        if rate is None:
+            raise ApiRequestError(f"Не удалось получить курс для {currency}→USD")
 
-            try:
-                amount = float(amount_str)
-                if amount <= 0:
-                    print("'amount' должен быть положительным числом")
-                    return
-            except ValueError:
-                print("'amount' должен быть числом")
-                return
+        revenue_usd = amount * rate
 
-            currency = currency.upper()
+        # Сохраняем изменения
+        portfolios = self._load_portfolios()
+        for i, p in enumerate(portfolios):
+            if p.user_id == user_id:
+                portfolios[i] = portfolio
+                break
+        self._save_portfolios(portfolios)
 
-            # Получаем курс для отчета
-            rate = self.exchange_service.get_exchange_rate(currency, 'USD')
+        logger.info(f"Продажа валюты: пользователь {user_id}, {amount} {currency} по курсу {rate}")
+
+        return old_balance, revenue_usd, rate
+
+
+class ExchangeService:
+    """Сервис для работы с курсами валют"""
+
+    def __init__(self, rates_file: str = None):
+        from .exchange_service import ExchangeService as ES
+        self._service = ES(rates_file)
+
+    @log_action("GET_RATE", verbose=True)
+    def get_exchange_rate(self, from_currency: str, to_currency: str) -> Optional[float]:
+        try:
+            # Валидация валют
+            from .currencies import get_currency
+            get_currency(from_currency)
+            get_currency(to_currency)
+
+            rate = self._service.get_exchange_rate(from_currency, to_currency)
             if rate is None:
-                print(f"Не удалось получить курс для {currency}→USD")
-                return
+                raise ApiRequestError(f"Курс {from_currency}→{to_currency} недоступен")
 
-            old_balance, cost_usd = self.portfolio_manager.buy_currency(
-                self.current_user.user_id, currency, amount
-            )
+            return rate
 
-            print(f"Покупка выполнена: {format_currency_amount(amount, currency)} по курсу {rate:,.2f} USD/{currency}")
-            print("Изменения в портфеле:")
-            print(f"- {currency}: было {format_currency_amount(old_balance, currency)} → стало {format_currency_amount(old_balance + amount, currency)}")
-            print(f"Оценочная стоимость покупки: ${cost_usd:,.2f}")
+        except CurrencyNotFoundError as e:
+            raise ValidationError(str(e))
 
-        except ValueError as e:
-            print(f"Ошибка покупки: {e}")
-        except Exception as e:
-            print(f"Неожиданная ошибка: {e}")
-
-    def do_sell(self, args):
-        """Продать валюту: sell --currency <code> --amount <number>"""
-        if not self._check_auth():
-            return
-
+    @log_action("GET_RATE_INFO", verbose=True)
+    def get_rate_info(self, from_currency: str, to_currency: str) -> dict:
         try:
-            parsed_args = self._parse_args(args)
-            currency = parsed_args.get('currency')
-            amount_str = parsed_args.get('amount')
+            # Валидация валют
+            from .currencies import get_currency
+            get_currency(from_currency)
+            get_currency(to_currency)
 
-            if not currency or not amount_str:
-                print("Использование: sell --currency <code> --amount <number>")
-                return
+            return self._service.get_rate_info(from_currency, to_currency)
 
-            try:
-                amount = float(amount_str)
-                if amount <= 0:
-                    print("'amount' должен быть положительным числом")
-                    return
-            except ValueError:
-                print("'amount' должен быть числом")
-                return
-
-            currency = currency.upper()
-
-            # Получаем курс для отчета
-            rate = self.exchange_service.get_exchange_rate(currency, 'USD')
-            if rate is None:
-                print(f"Не удалось получить курс для {currency}→USD")
-                return
-
-            old_balance, revenue_usd = self.portfolio_manager.sell_currency(
-                self.current_user.user_id, currency, amount
-            )
-
-            print(f"Продажа выполнена: {format_currency_amount(amount, currency)} по курсу {rate:,.2f} USD/{currency}")
-            print("Изменения в портфеле:")
-            print(f"- {currency}: было {format_currency_amount(old_balance, currency)} → стало {format_currency_amount(old_balance - amount, currency)}")
-            print(f"Оценочная выручка: ${revenue_usd:,.2f}")
-
-        except ValueError as e:
-            print(f"Ошибка продажи: {e}")
-        except Exception as e:
-            print(f"Неожиданная ошибка: {e}")
-
-    def do_get_rate(self, args):
-        """Получить курс валюты: get-rate --from <currency> --to <currency>"""
-        try:
-            parsed_args = self._parse_args(args)
-            from_currency = parsed_args.get('from')
-            to_currency = parsed_args.get('to')
-
-            if not from_currency or not to_currency:
-                print("Использование: get-rate --from <currency> --to <currency>")
-                return
-
-            from_currency = from_currency.upper()
-            to_currency = to_currency.upper()
-
-            rate_info = self.exchange_service.get_rate_info(from_currency, to_currency)
-
-            if not rate_info:
-                print(f"Курс {from_currency}→{to_currency} недоступен. Повторите попытку позже.")
-                return
-
-            rate = rate_info['rate']
-            updated_at = rate_info['updated_at']
-
-            # Форматируем дату
-            try:
-                from datetime import datetime
-                dt = datetime.fromisoformat(updated_at.replace('Z', '+00:00'))
-                formatted_date = dt.strftime("%Y-%m-%d %H:%M:%S")
-            except (ValueError, TypeError):
-                formatted_date = updated_at
-
-
-            # Вычисляем обратный курс
-            reverse_rate = 1 / rate if rate != 0 else 0
-
-            print(f"Курс {from_currency}→{to_currency}: {rate:,.6f} (обновлено: {formatted_date})")
-            print(f"Обратный курс {to_currency}→{from_currency}: {reverse_rate:,.6f}")
-
-        except Exception as e:
-            print(f"Ошибка получения курса: {e}")
-
-    def do_info(self, args):
-        """Показать информацию о пользователе: info"""
-        if not self._check_auth():
-            return
-
-        user_info = self.current_user.get_user_info()
-        table = PrettyTable()
-        table.field_names = ["Поле", "Значение"]
-
-        for key, value in user_info.items():
-            table.add_row([key, value])
-
-        print(table)
-
-    def do_exit(self, args):
-        """Выход из приложения: exit"""
-        print("До свидания!")
-        return True
-
-    # Альтернативные короткие команды
-    def do_sp(self, args):
-        """Сокращение для show-portfolio"""
-        self.do_show_portfolio(args)
-
-    def do_br(self, args):
-        """Сокращение для get-rate"""
-        self.do_get_rate(args)
+        except CurrencyNotFoundError as e:
+            raise ValidationError(str(e))
