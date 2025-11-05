@@ -66,6 +66,7 @@ class WalletCLI(cmd.Cmd):
     def do_register(self, args):
         """Регистрация нового пользователя: register --username <name> --password <pass>"""
         try:
+            print("Начало регистрации")
             parsed_args = self._parse_args(args)
             username = parsed_args.get('username')
             password = parsed_args.get('password')
@@ -73,9 +74,10 @@ class WalletCLI(cmd.Cmd):
             if not username or not password:
                 print("Использование: register --username <name> --password <pass>")
                 return
-
+            print(f"Создания пользователя: {username}")
             user = self.user_manager.create_user(username, password)
             print(f"Пользователь '{username}' зарегистрирован (id={user.user_id}). Войдите: login --username {username} --password ****")
+            print("Теперь выполните login для входа в систему")
 
         except ValidationError as e:
             print(f"Ошибка регистрации: {e}")
@@ -87,6 +89,7 @@ class WalletCLI(cmd.Cmd):
     def do_login(self, args):
         """Вход в систему: login --username <name> --password <pass>"""
         try:
+            print("Попытка входа")
             parsed_args = self._parse_args(args)
             username = parsed_args.get('username')
             password = parsed_args.get('password')
@@ -95,6 +98,7 @@ class WalletCLI(cmd.Cmd):
                 print("Использование: login --username <name> --password <pass>")
                 return
 
+            print(f"Аутентификация пользователя {username}")
             user = self.user_manager.authenticate_user(username, password)
 
             if user:
@@ -110,6 +114,7 @@ class WalletCLI(cmd.Cmd):
         except Exception as e:
             logger.error(f"Неожиданная ошибка при входе: {e}")
             print(f"Ошибка входа: {e}")
+
 
     def do_logout(self, args):
         """Выход из системы: logout"""
@@ -282,14 +287,14 @@ class WalletCLI(cmd.Cmd):
 
     @log_action("GET_RATE", verbose=True)
     def do_get_rate(self, args):
-        """Получить курс валюты: get-rate --from <currency> --to <currency>"""
+        """Получить курс валюты: get_rate --from <currency> --to <currency>"""
         try:
             parsed_args = self._parse_args(args)
             from_currency = parsed_args.get('from')
             to_currency = parsed_args.get('to')
 
             if not from_currency or not to_currency:
-                print("Использование: get-rate --from <currency> --to <currency>")
+                print("Использование: get_rate --from <currency> --to <currency>")
                 return
 
             from_currency = from_currency.upper()

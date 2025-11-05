@@ -21,61 +21,96 @@ class UserManager:
 
     def _load_users(self) -> List[User]:
         """Загружает пользователей из базы данных"""
-        data = db.load_data("users")
-        return [User.from_dict(user_data) for user_data in data]
+        try:
+            data = db.load_data("users")
+            return [User.from_dict(user_data) for user_data in data]
+        except Exception as e:
+            logger.error(f"Ошибка загрузки пользователей: {e}")
+        return []
 
     def _save_users(self, users: List[User]):
         """Сохраняет пользователей в базу данных"""
-        data = [user.to_dict() for user in users]
-        db.save_data("users", data)
+        try:
+            data = [user.to_dict() for user in users]
+            db.save_data("users", data)
+        except Exception as e:
+            logger.error(f"Ошибка сохранения пользователей: {e}")
+            raise
 
     @log_action("CHECK_USERNAME", verbose=False)
     def is_username_taken(self, username: str) -> bool:
         """Проверяет, занято ли имя пользователя"""
-        users = self._load_users()
-        return any(user.username == username for user in users)
+        try:
+            users = self._load_users()
+            return any(user.username == username for user in users)
+        except Exception as e:
+            logger.error(f"Ошибка проверки имени пользователя: {e}")
+            return False
 
     @log_action("REGISTER", verbose=True)
     def create_user(self, username: str, password: str) -> User:
         """Создает нового пользователя"""
-        if self.is_username_taken(username):
-            raise ValidationError(f"Имя пользователя '{username}' уже занято")
+        try:
+            print(f"Попытка создания пользователя: {username}")
+            if self.is_username_taken(username):
+                raise ValidationError(f"Имя пользователя '{username}' уже занято")
 
-        users = self._load_users()
+            users = self._load_users()
+            print(f"Загружено пользователей: {len(users)}")
 
         # Генерация нового ID
-        user_id = max([user.user_id for user in users], default=0) + 1
+            user_id = max([user.user_id for user in users], default=0) + 1
+            print(f"Новый ID пользователя:{user_id}")
 
-        user = User(user_id, username, password)
-        users.append(user)
-        self._save_users(users)
+            user = User(user_id, username, password)
+            users.append(user)
 
-        # Создаем пустой портфель для пользователя
-        portfolio_manager = PortfolioManager()
-        portfolio_manager.create_portfolio(user_id)
+            self._save_users(users)
+            print(f"Пользователь создан: {username} (ID: {user_id})")
 
-        logger.info(f"Зарегистрирован новый пользователь: {username} (ID: {user_id})")
-        return user
+            return User
+        except ValidationError as e:
+            print(f"Ошибка валидации при регистрации: {e}")
+            raise
+        except Exception as e:
+            print(f"Неожиданная ошбка при регистрации: {e}")
+            logger.error(f"Неожиданная ошбка при регистрации: {e}", exc_info=True)
+        raise
 
     @log_action("GET_USER", verbose=False)
     def get_user(self, username: str) -> Optional[User]:
-        users = self._load_users()
-        for user in users:
-            if user.username == username:
-                return user
-        return None
+        try:
+            users = self._load_users()
+            for user in users:
+                if user.username == username:
+                    return user
+            return None
+        except Exception as e:
+            logger.error(f"Ошибка поиска пользователя: {e}")
+            return None
 
     @log_action("LOGIN", verbose=True)
     def authenticate_user(self, username: str, password: str) -> Optional[User]:
-        user = self.get_user(username)
-        if not user:
-            raise UserNotFoundError(username=username)
+        try:
+            print(f'Попытка аутентификации: {username}')
+            user = self.get_user(username)
 
-        if not user.verify_password(password):
-            raise AuthenticationError("Неверный пароль")
+            if not user:
+                raise UserNotFoundError(username=username)
 
-        logger.info(f"Успешная аутентификация пользователя: {username}")
-        return user
+            if not user.verify_password(password):
+                raise AuthenticationError("Неверный пароль")
+            print("Успешна аутентификация")
+            return user
+
+        except (UserNotFoundError, AuthenticationError) as e:
+            print(f"Неожиданная ошбка: {e}")
+            raise
+
+        except Exception as e:
+            print(f"Неожиданная ошбка при аутентификации: {e}")
+            logger.error(f"Неожиданная ошбка при аутентификации: {e}", exc_info=True)
+            raise
 
 
 class PortfolioManager:
