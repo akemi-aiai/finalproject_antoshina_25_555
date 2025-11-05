@@ -15,10 +15,3 @@ package-install:
 
 lint:
 	poetry run ruff check .
-
-test:
-	poetry run python -m pytest
-
-clean:
-	rm -rf dist build *.egg-info
-	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true

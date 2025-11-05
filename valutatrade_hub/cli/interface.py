@@ -1,5 +1,6 @@
 import cmd
 import shlex
+from typing import Dict
 
 from prettytable import PrettyTable
 
@@ -52,7 +53,7 @@ class WalletCLI(cmd.Cmd):
                     i += 1
             return result
         except ValueError as e:
-            raise ValidationError(f"Ошибка разбора аргументов: {e}")
+            raise ValidationError(f"Ошибка разбора аргументов: {e}") from e
 
     def _check_auth(self) -> bool:
         """Проверяет авторизацию пользователя"""
@@ -211,23 +212,23 @@ class WalletCLI(cmd.Cmd):
                 self.current_user.user_id, currency, amount
             )
 
-            print(f"✅ Покупка выполнена: {format_currency_amount(amount, currency)} по курсу {rate:,.2f} USD/{currency}")
-            print("📊 Изменения в портфеле:")
+            print(f"Покупка выполнена: {format_currency_amount(amount, currency)} по курсу {rate:,.2f} USD/{currency}")
+            print("Изменения в портфеле:")
             print(f"   - {currency}: было {format_currency_amount(old_balance, currency)} → стало {format_currency_amount(old_balance + amount, currency)}")
-            print(f"💰 Оценочная стоимость покупки: ${cost_usd:,.2f}")
+            print(f"Оценочная стоимость покупки: ${cost_usd:,.2f}")
 
         except InsufficientFundsError as e:
-            print(f"❌ Ошибка: {e}")
+            print(f"Ошибка: {e}")
         except (ValidationError, CurrencyNotFoundError) as e:
-            print(f"❌ Ошибка: {e}")
+            print(f"Ошибка: {e}")
             if "неизвестная валюта" in str(e).lower():
-                print("   💡 Используйте команду 'currencies' для просмотра доступных валют")
+                print("Используйте команду 'currencies' для просмотра доступных валют")
         except ApiRequestError as e:
-            print(f"❌ Ошибка получения курса: {e}")
-            print("   💡 Повторите попытку позже")
+            print(f"Ошибка получения курса: {e}")
+            print("Повторите попытку позже")
         except Exception as e:
             logger.error(f"Неожиданная ошибка при покупке: {e}")
-            print(f"❌ Неожиданная ошибка: {e}")
+            print(f"Неожиданная ошибка: {e}")
 
     @log_action("SELL", verbose=True)
     def do_sell(self, args):
@@ -260,24 +261,24 @@ class WalletCLI(cmd.Cmd):
                 self.current_user.user_id, currency, amount
             )
 
-            print(f"✅ Продажа выполнена: {format_currency_amount(amount, currency)} по курсу {rate:,.2f} USD/{currency}")
-            print("📊 Изменения в портфеле:")
-            print(f"   - {currency}: было {format_currency_amount(old_balance, currency)} → стало {format_currency_amount(old_balance - amount, currency)}")
-            print(f"💰 Оценочная выручка: ${revenue_usd:,.2f}")
+            print(f"Продажа выполнена: {format_currency_amount(amount, currency)} по курсу {rate:,.2f} USD/{currency}")
+            print("Изменения в портфеле:")
+            print(f"- {currency}: было {format_currency_amount(old_balance, currency)} → стало {format_currency_amount(old_balance - amount, currency)}")
+            print(f"Оценочная выручка: ${revenue_usd:,.2f}")
 
         except InsufficientFundsError as e:
-            print(f"❌ Ошибка: {e}")
-            print("   💡 Проверьте баланс вашего кошелька")
+            print(f"Ошибка: {e}")
+            print("Проверьте баланс вашего кошелька")
         except (ValidationError, CurrencyNotFoundError) as e:
-            print(f"❌ Ошибка: {e}")
+            print(f"Ошибка: {e}")
             if "нет кошелька" in str(e).lower():
-                print("   💡 Валюта создаётся автоматически при первой покупке")
+                print("Валюта создаётся автоматически при первой покупке")
         except ApiRequestError as e:
-            print(f"❌ Ошибка получения курса: {e}")
-            print("   💡 Повторите попытку позже")
+            print(f"Ошибка получения курса: {e}")
+            print("Повторите попытку позже")
         except Exception as e:
             logger.error(f"Неожиданная ошибка при продаже: {e}")
-            print(f"❌ Неожиданная ошибка: {e}")
+            print(f"Неожиданная ошибка: {e}")
 
     @log_action("GET_RATE", verbose=True)
     def do_get_rate(self, args):
@@ -304,26 +305,26 @@ class WalletCLI(cmd.Cmd):
                 from datetime import datetime
                 dt = datetime.fromisoformat(updated_at.replace('Z', '+00:00'))
                 formatted_date = dt.strftime("%Y-%m-%d %H:%M:%S")
-            except:
+            except (ValueError, TypeError):
                 formatted_date = updated_at
 
             # Вычисляем обратный курс
             reverse_rate = 1 / rate if rate != 0 else 0
 
-            print(f"💱 Курс {from_currency}→{to_currency}: {rate:,.6f}")
-            print(f"🔄 Обратный курс {to_currency}→{from_currency}: {reverse_rate:,.6f}")
-            print(f"⏰ Обновлено: {formatted_date}")
+            print(f"Курс {from_currency}→{to_currency}: {rate:,.6f}")
+            print(f"Обратный курс {to_currency}→{from_currency}: {reverse_rate:,.6f}")
+            print(f"Обновлено: {formatted_date}")
 
         except (CurrencyNotFoundError, ValidationError) as e:
-            print(f"❌ Ошибка: {e}")
-            print("\n📋 Доступные валюты:")
+            print(f"Ошибка: {e}")
+            print("\nДоступные валюты:")
             self._show_supported_currencies()
         except ApiRequestError as e:
-            print(f"❌ Ошибка: {e}")
-            print("   💡 Повторите попытку позже или проверьте доступность сервиса")
+            print(f"Ошибка: {e}")
+            print("Повторите попытку позже или проверьте доступность сервиса")
         except Exception as e:
             logger.error(f"Неожиданная ошибка при получении курса: {e}")
-            print(f"❌ Ошибка получения курса: {e}")
+            print(f"Ошибка получения курса: {e}")
 
     def do_show_rates(self, args):
         """Показать актуальные курсы: show-rates [--currency <код>] [--top <N>] [--base <валюта>]"""
@@ -342,8 +343,8 @@ class WalletCLI(cmd.Cmd):
             last_refresh = cache_data.get("last_refresh")
 
             if not rates:
-                print("❌ Локальный кеш курсов пуст.")
-                print("💡 Выполните 'update-rates', чтобы загрузить данные")
+                print("Локальный кеш курсов пуст.")
+                print("Выполните 'update-rates', чтобы загрузить данные")
                 return
 
             # Фильтруем и сортируем курсы
@@ -351,10 +352,10 @@ class WalletCLI(cmd.Cmd):
 
             if not filtered_rates:
                 if currency_filter:
-                    print(f"❌ Курс для '{currency_filter}' не найден в кеше.")
-                    print("💡 Проверьте правильность кода валюты или обновите курсы")
+                    print(f"Курс для '{currency_filter}' не найден в кеше.")
+                    print("Проверьте правильность кода валюты или обновите курсы")
                 else:
-                    print("❌ Нет курсов, соответствующих фильтрам")
+                    print("Нет курсов, соответствующих фильтрам")
                 return
 
             # Применяем топ-N фильтр
@@ -362,7 +363,7 @@ class WalletCLI(cmd.Cmd):
                 try:
                     top_n = int(top_str)
                     if top_n <= 0:
-                        print("❌ Параметр --top должен быть положительным числом")
+                        print("Параметр --top должен быть положительным числом")
                         return
                     # Сортируем по курсу (дорогие сначала) и берем топ-N
                     sorted_rates = sorted(
@@ -372,7 +373,7 @@ class WalletCLI(cmd.Cmd):
                     )[:top_n]
                     filtered_rates = dict(sorted_rates)
                 except ValueError:
-                    print("❌ Параметр --top должен быть числом")
+                    print("Параметр --top должен быть числом")
                     return
 
             # Выводим результаты
@@ -380,7 +381,7 @@ class WalletCLI(cmd.Cmd):
 
         except Exception as e:
             logger.error(f"Ошибка при показе курсов: {e}")
-            print(f"❌ Ошибка показа курсов: {e}")
+            print(f"Ошибка показа курсов: {e}")
 
     def _filter_rates(self, rates: Dict, currency_filter: str, base_currency: str) -> Dict:
         """Фильтрует курсы по валюте и базовой валюте"""
@@ -397,7 +398,7 @@ class WalletCLI(cmd.Cmd):
 
             # Применяем фильтр по базовой валюте
             if base_currency != 'USD':  # Пока поддерживаем только USD как базовую
-                print("⚠️  Поддержка других базовых валют кроме USD в разработке")
+                print("Поддержка других базовых валют кроме USD в разработке")
                 break
 
             filtered[pair] = rate_data
@@ -406,6 +407,8 @@ class WalletCLI(cmd.Cmd):
 
     def _display_rates_table(self, rates: Dict, last_refresh: str, base_currency: str):
         """Отображает курсы в виде таблицы"""
+        from datetime import datetime
+
         from prettytable import PrettyTable
 
         table = PrettyTable()
@@ -424,11 +427,11 @@ class WalletCLI(cmd.Cmd):
 
             # Форматируем время
             try:
-                from datetime import datetime
                 dt = datetime.fromisoformat(updated_at.replace('Z', '+00:00'))
                 time_str = dt.strftime("%m-%d %H:%M")
-            except:
+            except (ValueError, TypeError):
                 time_str = updated_at[:16]
+
 
             # Форматируем курс в зависимости от величины
             if rate < 0.001:
@@ -446,18 +449,17 @@ class WalletCLI(cmd.Cmd):
         refresh_info = ""
         if last_refresh:
             try:
-                from datetime import datetime
                 dt = datetime.fromisoformat(last_refresh.replace('Z', '+00:00'))
                 refresh_info = dt.strftime("%Y-%m-%d %H:%M:%S")
-            except:
+            except (ValueError, TypeError):
                 refresh_info = last_refresh
 
-        print(f"💱 Актуальные курсы (база: {base_currency})")
+        print(f"Актуальные курсы (база: {base_currency})")
         if refresh_info:
-            print(f"🕐 Кеш обновлен: {refresh_info}")
+            print(f"Кеш обновлен: {refresh_info}")
         print("-" * 60)
         print(table)
-        print(f"📊 Всего пар: {len(rates)}")
+        print(f"Всего пар: {len(rates)}")
 
 
 
@@ -501,7 +503,7 @@ class WalletCLI(cmd.Cmd):
             parsed_args = self._parse_args(args)
             source = parsed_args.get('source')
 
-            print("🚀 Запуск обновления курсов валют...")
+            print("Запуск обновления курсов валют...")
 
             from ..parser_service.updater import get_updater
             updater = get_updater()
@@ -510,27 +512,27 @@ class WalletCLI(cmd.Cmd):
             sources = None
             if source:
                 if source not in ['coingecko', 'exchangerate']:
-                    print("❌ Неверный источник. Допустимые значения: coingecko, exchangerate")
+                    print("Неверный источник. Допустимые значения: coingecko, exchangerate")
                     return
                 sources = [source]
-                print(f"📡 Обновление только из источника: {source}")
+                print(f"Обновление только из источника: {source}")
             else:
-                print("📡 Обновление из всех источников...")
+                print("Обновление из всех источников...")
 
             # Выполняем обновление
             results = updater.run_update(sources)
 
             # Выводим результаты
-            print("\n📊 Результаты обновления:")
+            print("\nРезультаты обновления:")
             print("-" * 40)
 
             if results["success"]:
-                print("✅ Обновление завершено успешно!")
+                print("Обновление завершено успешно!")
             else:
-                print("⚠️  Обновление завершено с ошибками")
+                print("Обновление завершено с ошибками")
 
             # Статус по источникам
-            print("\n📡 Обработанные источники:")
+            print("\nОбработанные источники:")
             for source_info in results["sources_processed"]:
                 status_icon = "✅" if source_info["status"] == "success" else "❌"
                 print(f"   {status_icon} {source_info['source']}: {source_info['rates_count']} курсов")
@@ -538,13 +540,13 @@ class WalletCLI(cmd.Cmd):
                     print(f"      Ошибка: {source_info['error']}")
 
             # Общая статистика
-            print("\n📈 Общая статистика:")
-            print(f"   📊 Всего курсов: {results['rates_fetched']}")
-            print(f"   🕐 Время: {results['timestamp'][11:19]}")
+            print("\nОбщая статистика:")
+            print(f"Всего курсов: {results['rates_fetched']}")
+            print(f"Время: {results['timestamp'][11:19]}")
 
             # Ошибки
             if results["errors"]:
-                print(f"\n❌ Ошибки ({len(results['errors'])}):")
+                print(f"\nОшибки ({len(results['errors'])}):")
                 for error in results["errors"]:
                     print(f"   - {error}")
 
@@ -558,7 +560,7 @@ class WalletCLI(cmd.Cmd):
 
         except Exception as e:
             logger.error(f"Ошибка при обновлении курсов: {e}")
-            print(f"❌ Критическая ошибка при обновлении курсов: {e}")
+            print(f"Критическая ошибка при обновлении курсов: {e}")
 
 
 
@@ -574,44 +576,44 @@ class WalletCLI(cmd.Cmd):
             update_status = updater.get_update_status()
             scheduler_status = scheduler.get_status()
 
-            print("📊 Статус Parser Service:")
+            print("Статус Parser Service:")
             print("-" * 40)
 
             # Статус планировщика
-            print("🕐 Планировщик:")
+            print("Планировщик:")
             status_icon = "🟢" if scheduler_status["is_running"] else "🔴"
-            print(f"   {status_icon} Статус: {'Запущен' if scheduler_status['is_running'] else 'Остановлен'}")
-            print(f"   ⏱️  Интервал: {scheduler_status['update_interval_minutes']} мин")
-            print(f"   🧵 Поток: {'Активен' if scheduler_status['thread_alive'] else 'Неактивен'}")
+            print(f"{status_icon} Статус: {'Запущен' if scheduler_status['is_running'] else 'Остановлен'}")
+            print(f"Интервал: {scheduler_status['update_interval_minutes']} мин")
+            print(f"Поток: {'Активен' if scheduler_status['thread_alive'] else 'Неактивен'}")
 
             # Статус последнего обновления
-            print("\n📈 Последнее обновление:")
+            print("\nПоследнее обновление:")
             if update_status["last_update"]:
                 from datetime import datetime
                 try:
                     last_update = datetime.fromisoformat(update_status["last_update"])
                     formatted_time = last_update.strftime("%Y-%m-%d %H:%M:%S")
-                    print(f"   🕐 Время: {formatted_time}")
-                except:
-                    print(f"   🕐 Время: {update_status['last_update']}")
+                    print(f"Время: {formatted_time}")
+                except (ValueError, TypeError):
+                    print(f"Время: {update_status['last_update']}")
             else:
-                print("   🕐 Время: Никогда")
+                print("Время: Никогда")
 
-            print(f"   📊 Всего пар: {update_status['total_pairs']}")
-            print(f"   💾 Размер данных: {update_status['storage_size']} байт")
+            print(f"Всего пар: {update_status['total_pairs']}")
+            print(f"Размер данных: {update_status['storage_size']} байт")
 
             # Информация о конфигурации
-            print("\n⚙️  Конфигурация:")
+            print("\nКонфигурация:")
             from ..parser_service.config import ParserConfig
             config_ok = ParserConfig.validate_config()
             config_icon = "🟢" if config_ok else "🟡"
-            print(f"   {config_icon} API ключи: {'Настроены' if config_ok else 'Требуют настройки'}")
-            print(f"   💵 Фиатные валюты: {len(ParserConfig.SUPPORTED_FIAT_CURRENCIES)}")
-            print(f"   ₿ Криптовалюты: {len(ParserConfig.SUPPORTED_CRYPTO_CURRENCIES)}")
+            print(f"{config_icon} API ключи: {'Настроены' if config_ok else 'Требуют настройки'}")
+            print(f"Фиатные валюты: {len(ParserConfig.SUPPORTED_FIAT_CURRENCIES)}")
+            print(f"Криптовалюты: {len(ParserConfig.SUPPORTED_CRYPTO_CURRENCIES)}")
 
         except Exception as e:
             logger.error(f"Ошибка при получении статуса парсера: {e}")
-            print(f"❌ Ошибка получения статуса: {e}")
+            print(f"Ошибка получения статуса: {e}")
 
     def do_parser_status(self, args):
         """Показать статус парсер-сервиса: parser-status"""
@@ -628,27 +630,26 @@ class WalletCLI(cmd.Cmd):
             scheduler_status = scheduler.get_status()
             config_valid = config.validate_config()
 
-            print("📊 Статус Parser Service:")
+            print("Статус Parser Service:")
             print("=" * 50)
 
             # Статус конфигурации
-            print("\n⚙️  Конфигурация:")
-            config_icon = "🟢" if config_valid else "🟡"
-            print(f"   {config_icon} Настройки: {'Валидны' if config_valid else 'Требуют внимания'}")
-            print(f"   🔑 ExchangeRate-API: {'Настроен' if config.EXCHANGERATE_API_KEY != 'your_exchangerate_api_key_here' else 'Не настроен'}")
-            print(f"   🔑 CoinGecko: {'Настроен' if config.COINGECKO_API_KEY else 'Публичный доступ'}")
-            print(f"   💵 Фиатные валюты: {len(config.FIAT_CURRENCIES)}")
-            print(f"   ₿ Криптовалюты: {len(config.CRYPTO_CURRENCIES)}")
+            print("\nКонфигурация:")
+            print(f"Настройки: {'Валидны' if config_valid else 'Требуют внимания'}")
+            print(f"ExchangeRate-API: {'Настроен' if config.EXCHANGERATE_API_KEY != 'your_exchangerate_api_key_here' else 'Не настроен'}")
+            print(f"CoinGecko: {'Настроен' if config.COINGECKO_API_KEY else 'Публичный доступ'}")
+            print(f"Фиатные валюты: {len(config.FIAT_CURRENCIES)}")
+            print(f"₿ Криптовалюты: {len(config.CRYPTO_CURRENCIES)}")
 
             # Статус планировщика
-            print("\n🕐 Планировщик:")
+            print("\nПланировщик:")
             status_icon = "🟢" if scheduler_status["is_running"] else "🔴"
             print(f"   {status_icon} Статус: {'Запущен' if scheduler_status['is_running'] else 'Остановлен'}")
-            print(f"   ⏱️  Интервал: {scheduler_status['update_interval_minutes']} мин")
-            print(f"   🧵 Поток: {'Активен' if scheduler_status['thread_alive'] else 'Неактивен'}")
+            print(f"   ⏱Интервал: {scheduler_status['update_interval_minutes']} мин")
+            print(f"   Поток: {'Активен' if scheduler_status['thread_alive'] else 'Неактивен'}")
 
             # Статус данных
-            print("\n💾 Данные:")
+            print("\nДанные:")
             cache_status = update_status["cache"]
             history_status = update_status["history"]
 
@@ -659,14 +660,15 @@ class WalletCLI(cmd.Cmd):
                 try:
                     from datetime import datetime
                     last_update = datetime.fromisoformat(cache_status["last_refresh"].replace('Z', '+00:00'))
-                    print(f"   🕐 Последнее обновление: {last_update.strftime('%Y-%m-%d %H:%M:%S')}")
-                except:
-                    print(f"   🕐 Последнее обновление: {cache_status['last_refresh']}")
+                    print(f"Последнее обновление: {last_update.strftime('%Y-%m-%d %H:%M:%S')}")
+                except (ValueError, TypeError):
+                    print(f"Последнее обновление: {cache_status['last_refresh']}")
 
-            print(f"   📈 История: {history_status['total_records']} записей")
+
+            print(f"История: {history_status['total_records']} записей")
 
             # Советы
-            print("\n💡 Советы:")
+            print("\nСоветы:")
             if not config_valid:
                 print("   - Настройте API ключи в переменных окружения")
             if not cache_status["is_fresh"]:
@@ -676,12 +678,14 @@ class WalletCLI(cmd.Cmd):
 
         except Exception as e:
             logger.error(f"Ошибка при получении статуса парсера: {e}")
-            print(f"❌ Ошибка получения статуса: {e}")
+            print(f"Ошибка получения статуса: {e}")
 
 
+    from typing import Dict, List
+
+    from prettytable import PrettyTable
     def _display_history_table(self, history: List[Dict], pair: str):
         """Отображает историю курсов в виде таблицы"""
-        from prettytable import PrettyTable
 
         table = PrettyTable()
         table.field_names = ["#", "Курс", "Изменение", "Время", "Источник"]
@@ -713,8 +717,9 @@ class WalletCLI(cmd.Cmd):
                 from datetime import datetime
                 dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
                 time_str = dt.strftime("%m-%d %H:%M")
-            except:
+            except (ValueError, TypeError):
                 time_str = timestamp[:16]
+
 
             # Форматируем изменение
             change_icon = "🟢" if change > 0 else "🔴" if change < 0 else "⚪"
@@ -730,17 +735,17 @@ class WalletCLI(cmd.Cmd):
 
             table.add_row([i+1, rate_str, change_str, time_str, source])
 
-        print(f"📈 История курсов {pair}:")
+        print(f"История курсов {pair}:")
         print("-" * 70)
         print(table)
-        print(f"📊 Показано записей: {len(history)}")
+        print(f"Показано записей: {len(history)}")
 
         # Статистика изменений
         if len(history) > 1:
             first_rate = history[-1]["rate"]  # Самая старая запись
             last_rate = history[0]["rate"]    # Самая новая запись
             total_change = ((last_rate - first_rate) / first_rate) * 100
-            print(f"📈 Общее изменение: {total_change:+.2f}%")
+            print(f"Общее изменение: {total_change:+.2f}%")
 
     # Существующие команды оставляем без изменений
     def do_start_parser(self, args):
@@ -751,13 +756,13 @@ class WalletCLI(cmd.Cmd):
             scheduler = get_scheduler()
             scheduler.start()
 
-            print("✅ Фоновое обновление курсов запущено")
-            print("💡 Используйте 'parser-status' для проверки статуса")
-            print("💡 Используйте 'stop-parser' для остановки")
+            print("Фоновое обновление курсов запущено")
+            print("Используйте 'parser-status' для проверки статуса")
+            print("Используйте 'stop-parser' для остановки")
 
         except Exception as e:
             logger.error(f"Ошибка при запуске парсера: {e}")
-            print(f"❌ Ошибка запуска парсера: {e}")
+            print(f"Ошибка запуска парсера: {e}")
 
     def do_stop_parser(self, args):
         """Остановить фоновое обновление курсов: stop-parser"""
@@ -767,11 +772,11 @@ class WalletCLI(cmd.Cmd):
             scheduler = get_scheduler()
             scheduler.stop()
 
-            print("✅ Фоновое обновление курсов остановлено")
+            print("Фоновое обновление курсов остановлено")
 
         except Exception as e:
             logger.error(f"Ошибка при остановке парсера: {e}")
-            print(f"❌ Ошибка остановки парсера: {e}")
+            print(f"Ошибка остановки парсера: {e}")
 
     def do_supported_pairs(self, args):
         """Показать поддерживаемые валютные пары: supported-pairs"""
@@ -781,12 +786,12 @@ class WalletCLI(cmd.Cmd):
             print("💱 Поддерживаемые валютные пары:")
             print("=" * 50)
 
-            print("\n💵 Фиатные валюты (к USD):")
+            print("\nФиатные валюты (к USD):")
             fiat_pairs = [f"{curr}_USD" for curr in config.FIAT_CURRENCIES if curr != "USD"]
             for i, pair in enumerate(sorted(fiat_pairs), 1):
                 print(f"   {i:2d}. {pair}")
 
-            print(f"\n📊 Всего фиатных пар: {len(fiat_pairs)}")
+            print(f"\nВсего фиатных пар: {len(fiat_pairs)}")
 
             print("\n₿ Криптовалюты (к USD и обратно):")
             crypto_pairs = []
@@ -801,15 +806,15 @@ class WalletCLI(cmd.Cmd):
             if len(crypto_pairs) > 12:
                 print(f"   ... и еще {len(crypto_pairs) - 12} пар")
 
-            print(f"\n📊 Всего крипто пар: {len(crypto_pairs)}")
-            print(f"📈 Всего пар всего: {len(fiat_pairs) + len(crypto_pairs)}")
+            print(f"\nВсего крипто пар: {len(crypto_pairs)}")
+            print(f"Всего пар всего: {len(fiat_pairs) + len(crypto_pairs)}")
 
-            print("\n💡 Используйте 'show-rates --currency <код>' для просмотра конкретной валюты")
-            print("💡 Используйте 'show-rates --top N' для просмотра топ-N самых дорогих валют")
+            print("\nИспользуйте 'show-rates --currency <код>' для просмотра конкретной валюты")
+            print("Используйте 'show-rates --top N' для просмотра топ-N самых дорогих валют")
 
         except Exception as e:
             logger.error(f"Ошибка при получении списка пар: {e}")
-            print(f"❌ Ошибка получения списка пар: {e}")
+            print(f"Ошибка получения списка пар: {e}")
 
     def do_rates_history(self, args):
         """Показать историю курсов: rates-history [--pair <пара>] [--limit <число>]"""
@@ -820,16 +825,16 @@ class WalletCLI(cmd.Cmd):
 
             # Валидация пары
             if '_' not in pair:
-                print("❌ Неверный формат пары. Используйте: BTC_USD, EUR_USD и т.д.")
+                print("Неверный формат пары. Используйте: BTC_USD, EUR_USD и т.д.")
                 return
 
             try:
                 limit = int(limit_str)
                 if limit <= 0 or limit > 50:
-                    print("❌ Лимит должен быть от 1 до 50")
+                    print("Лимит должен быть от 1 до 50")
                     return
             except ValueError:
-                print("❌ Лимит должен быть числом")
+                print("Лимит должен быть числом")
                 return
 
             from ..parser_service.storage import ParserStorage
@@ -838,15 +843,15 @@ class WalletCLI(cmd.Cmd):
             history = storage.get_rate_history(pair, limit)
 
             if not history:
-                print(f"❌ История для пары {pair} не найдена")
-                print("💡 Проверьте правильность пары или выполните 'update-rates'")
+                print(f"История для пары {pair} не найдена")
+                print("Проверьте правильность пары или выполните 'update-rates'")
                 return
 
             self._display_history_table(history, pair)
 
         except Exception as e:
             logger.error(f"Ошибка при получении истории курсов: {e}")
-            print(f"❌ Ошибка получения истории: {e}")
+            print(f"Ошибка получения истории: {e}")
 
 
         """Показать поддерживаемые валютные пары: supported-pairs"""
@@ -861,7 +866,7 @@ class WalletCLI(cmd.Cmd):
             for i, pair in enumerate(sorted(fiat_pairs), 1):
                 print(f"   {i:2d}. {pair}")
 
-            print(f"\n📊 Всего фиатных пар: {len(fiat_pairs)}")
+            print(f"\nВсего фиатных пар: {len(fiat_pairs)}")
 
             print("\n₿ Криптовалюты (к USD и обратно):")
             crypto_pairs = []
@@ -876,15 +881,15 @@ class WalletCLI(cmd.Cmd):
             if len(crypto_pairs) > 12:
                 print(f"   ... и еще {len(crypto_pairs) - 12} пар")
 
-            print(f"\n📊 Всего крипто пар: {len(crypto_pairs)}")
-            print(f"📈 Всего пар всего: {len(fiat_pairs) + len(crypto_pairs)}")
+            print(f"\nВсего крипто пар: {len(crypto_pairs)}")
+            print(f"Всего пар всего: {len(fiat_pairs) + len(crypto_pairs)}")
 
-            print("\n💡 Используйте 'show-rates --currency <код>' для просмотра конкретной валюты")
-            print("💡 Используйте 'show-rates --top N' для просмотра топ-N самых дорогих валют")
+            print("\nИспользуйте 'show-rates --currency <код>' для просмотра конкретной валюты")
+            print("Используйте 'show-rates --top N' для просмотра топ-N самых дорогих валют")
 
         except Exception as e:
             logger.error(f"Ошибка при получении списка пар: {e}")
-            print(f"❌ Ошибка получения списка пар: {e}")
+            print(f"Ошибка получения списка пар: {e}")
 
     def do_currencies(self, args):
         """Показать все поддерживаемые валюты: currencies"""
@@ -961,7 +966,7 @@ class WalletCLI(cmd.Cmd):
         pass
 
         """Сокращение для show-portfolio"""
-        self.do_show_portfolio(args)
+        self.do_show_portfolio("")
 
     def do_br(self, args):
         """Сокращение для get-rate"""

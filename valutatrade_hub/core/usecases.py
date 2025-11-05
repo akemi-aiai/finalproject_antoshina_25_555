@@ -136,9 +136,10 @@ class PortfolioManager:
         # Валидация валюты
         from .currencies import get_currency
         try:
-            currency_obj = get_currency(currency)
+            get_currency(currency)
         except CurrencyNotFoundError as e:
-            raise ValidationError(str(e))
+            raise ValidationError(str(e)) from e
+
 
         # Создаем кошелек если его нет
         if not portfolio.has_wallet(currency):
@@ -220,12 +221,12 @@ class PortfolioManager:
         return old_balance, revenue_usd, rate
 
 
-class ExchangeService:
+class ExchangeUseService:
     """Сервис для работы с курсами валют"""
 
     def __init__(self, rates_file: str = None):
-        from .exchange_service import ExchangeService as ES
-        self._service = ES(rates_file)
+        from .exchange_service import ExchangeService
+        self._service = ExchangeService(rates_file)
 
     @log_action("GET_RATE", verbose=True)
     def get_exchange_rate(self, from_currency: str, to_currency: str) -> Optional[float]:
@@ -242,12 +243,14 @@ class ExchangeService:
             return rate
 
         except CurrencyNotFoundError as e:
-            raise ValidationError(str(e))
+            raise ValidationError(str(e)) from e
+
+
 
     @log_action("GET_RATE_INFO", verbose=True)
     def get_rate_info(self, from_currency: str, to_currency: str) -> dict:
         try:
-            # Валидация валют
+        # Валидация валют
             from .currencies import get_currency
             get_currency(from_currency)
             get_currency(to_currency)
@@ -255,4 +258,5 @@ class ExchangeService:
             return self._service.get_rate_info(from_currency, to_currency)
 
         except CurrencyNotFoundError as e:
-            raise ValidationError(str(e))
+            raise ValidationError(str(e)) from e
+

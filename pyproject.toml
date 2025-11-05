@@ -11,8 +11,9 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 prettytable = "^3.9.0"
+requests = "^2.31.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.0"

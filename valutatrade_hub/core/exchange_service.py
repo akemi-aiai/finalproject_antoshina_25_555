@@ -58,7 +58,8 @@ class ExchangeService:
             get_currency(from_currency)
             get_currency(to_currency)
         except CurrencyNotFoundError as e:
-            raise ValidationError(str(e))
+            raise ValidationError(str(e)) from e
+
 
         stub_rates = {
             "USD_EUR": 0.927, "EUR_USD": 1.0786,

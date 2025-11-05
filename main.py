@@ -3,6 +3,7 @@
 
 import os
 import sys
+
 from valutatrade_hub.cli.interface import WalletCLI
 from valutatrade_hub.infra.settings import settings
 from valutatrade_hub.logging_config import logger

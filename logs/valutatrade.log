@@ -1,0 +1,10 @@
+2025-11-05 11:23:13 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-05 11:24:02,879", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_RATE", "action": "GET_RATE"}
+2025-11-05 11:24:02 - valutatrade - INFO - Начало действия: GET_RATE
+{"timestamp": "2025-11-05 11:24:02,880", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_RATE", "action": "GET_RATE", "result": "OK", "execution_time_sec": 0.0}
+2025-11-05 11:24:02 - valutatrade - INFO - Действие завершено: GET_RATE
+2025-11-05 11:27:27 - valutatrade - ERROR - Ошибка при запуске парсера: No module named 'requests'
+2025-11-05 11:27:45 - valutatrade - ERROR - Ошибка при запуске парсера: No module named 'requests'
+2025-11-05 11:28:53 - valutatrade - INFO - Завершение работы приложения
+2025-11-05 11:33:51 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+2025-11-05 11:33:59 - valutatrade - INFO - Завершение работы приложения

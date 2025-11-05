@@ -2,7 +2,7 @@
 Планировщик для периодического обновления курсов
 """
 import threading
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
 
 from ..logging_config import logger
 from .config import ParserConfig

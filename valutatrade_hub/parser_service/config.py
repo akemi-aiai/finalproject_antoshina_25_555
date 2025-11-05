@@ -4,7 +4,9 @@
 import os
 from dataclasses import dataclass, field
 from typing import Dict, Tuple
+
 from ..infra.settings import settings
+
 
 @dataclass
 class ParserConfig:
