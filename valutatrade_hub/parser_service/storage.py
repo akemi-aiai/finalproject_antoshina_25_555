@@ -217,12 +217,12 @@ class ParserStorage:
         data = self.load_historical_data()
         history = []
 
-        for record_id, record in data.get("history", {}).items():
+        for _, record in data.get("history", {}).items():
             if (record.get("from_currency") == pair.split("_")[0] and
                 record.get("to_currency") == pair.split("_")[1]):
                 history.append(record)
 
-        # Сортируем по времени (новые сначала)
+    # Сортируем по времени (новые сначала)
         history.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
 
         return history[:limit] if limit else history

@@ -96,10 +96,11 @@ class Wallet:
         # Валидация и получение информации о валюте
         try:
             self._currency = get_currency(currency_code)
-        except CurrencyNotFoundError:
-            raise ValidationError(f"Неизвестная валюта '{currency_code}'")
+        except CurrencyNotFoundError as e:
+            raise ValidationError(f"Неизвестная валюта '{currency_code}'") from e
 
         self._balance = balance
+
 
     @property
     def currency_code(self) -> str:
@@ -201,8 +202,9 @@ class Portfolio:
         # Валидируем базовую валюту
         try:
             get_currency(base_currency)
-        except CurrencyNotFoundError:
-            raise ValidationError(f"Неизвестная базовая валюта '{base_currency}'")
+        except CurrencyNotFoundError as e:
+            raise ValidationError(f"Неизвестная базовая валюта '{base_currency}'") from e
+
 
         for currency, wallet in self._wallets.items():
             if currency == base_currency:

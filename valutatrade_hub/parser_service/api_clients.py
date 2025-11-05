@@ -36,19 +36,6 @@ class BaseApiClient(ABC):
         pass
 
     def _make_request(self, url: str, params: Dict = None) -> Dict[str, Any]:
-        """
-        Выполняет HTTP запрос с повторными попытками
-
-        Args:
-            url: URL для запроса
-            params: Параметры запроса
-
-        Returns:
-            Ответ API в виде словаря
-
-        Raises:
-            ApiRequestError: Если запрос не удался
-        """
         start_time = time.time()
 
         for attempt in range(config.MAX_RETRIES):
@@ -63,8 +50,7 @@ class BaseApiClient(ABC):
 
                 request_time = int((time.time() - start_time) * 1000)
 
-                # Проверяем статус код
-                if response.status_code == 429:  # Too Many Requests
+                if response.status_code == 429:
                     wait_time = (2 ** attempt) * 5
                     logger.warning(f"Превышен лимит запросов. Ожидание {wait_time} сек...")
                     time.sleep(wait_time)
@@ -72,7 +58,6 @@ class BaseApiClient(ABC):
 
                 response.raise_for_status()
 
-                # Возвращаем данные с метаинформацией
                 return {
                     "data": response.json(),
                     "meta": {
@@ -83,34 +68,36 @@ class BaseApiClient(ABC):
                     }
                 }
 
-            except requests.exceptions.Timeout:
+            except requests.exceptions.Timeout as e:
                 logger.warning(f"Таймаут запроса (попытка {attempt + 1})")
                 if attempt == config.MAX_RETRIES - 1:
-                    raise ApiRequestError("Таймаут при обращении к API")
+                    raise ApiRequestError("Таймаут при обращении к API") from e
 
-            except requests.exceptions.ConnectionError:
+            except requests.exceptions.ConnectionError as e:
                 logger.warning(f"Ошибка соединения (попытка {attempt + 1})")
                 if attempt == config.MAX_RETRIES - 1:
-                    raise ApiRequestError("Ошибка соединения с API")
+                    raise ApiRequestError("Ошибка соединения с API") from e
 
             except requests.exceptions.HTTPError as e:
                 if response.status_code == 401:
-                    raise ApiRequestError("Неверный API ключ")
+                    raise ApiRequestError("Неверный API ключ") from e
                 elif response.status_code == 403:
-                    raise ApiRequestError("Доступ к API запрещен")
+                    raise ApiRequestError("Доступ к API запрещен") from e
                 else:
-                    raise ApiRequestError(f"HTTP ошибка {response.status_code}: {e}")
+                    raise ApiRequestError(f"HTTP ошибка {response.status_code}: {e}") from e
 
             except requests.exceptions.RequestException as e:
                 logger.error(f"Ошибка запроса: {e}")
                 if attempt == config.MAX_RETRIES - 1:
-                    raise ApiRequestError(f"Ошибка при обращении к API: {e}")
+                    raise ApiRequestError(f"Ошибка при обращении к API: {e}") from e
 
-            # Ждем перед следующей попыткой
+        # Ждем перед следующей попыткой
             if attempt < config.MAX_RETRIES - 1:
                 time.sleep(2 ** attempt)
 
         raise ApiRequestError("Не удалось выполнить запрос после всех попыток")
+
+
 
 
 class CoinGeckoClient(BaseApiClient):
@@ -131,7 +118,6 @@ class CoinGeckoClient(BaseApiClient):
         try:
             result = self._make_request(url, params)
             api_data = result["data"]
-            meta = result["meta"]
 
             if not api_data:
                 raise ApiRequestError("Пустой ответ от CoinGecko API")
@@ -157,7 +143,8 @@ class CoinGeckoClient(BaseApiClient):
             raise
         except Exception as e:
             logger.error(f"Неожиданная ошибка при получении курсов от CoinGecko: {e}")
-            raise ApiRequestError(f"Ошибка парсинга данных CoinGecko: {e}")
+            raise ApiRequestError(f"Ошибка парсинга данных CoinGecko: {e}") from e
+
 
 
 class ExchangeRateApiClient(BaseApiClient):
@@ -177,7 +164,6 @@ class ExchangeRateApiClient(BaseApiClient):
         try:
             result = self._make_request(url)
             api_data = result["data"]
-            meta = result["meta"]
 
             # Проверяем успешность ответа
             if api_data.get('result') != 'success':
@@ -200,7 +186,7 @@ class ExchangeRateApiClient(BaseApiClient):
             raise
         except Exception as e:
             logger.error(f"Неожиданная ошибка при получении курсов от ExchangeRate-API: {e}")
-            raise ApiRequestError(f"Ошибка парсинга данных ExchangeRate-API: {e}")
+            raise ApiRequestError(f"Ошибка парсинга данных ExchangeRate-API: {e}") from e
 
 
 class APIFactory:

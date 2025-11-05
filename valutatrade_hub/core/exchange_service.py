@@ -6,7 +6,7 @@ from ..infra.database import db
 from ..infra.settings import settings
 from ..logging_config import logger
 from .currencies import get_currency
-from .exceptions import ApiRequestError, CurrencyNotFoundError
+from .exceptions import ApiRequestError, CurrencyNotFoundError, ValidationError
 
 
 class ExchangeService:

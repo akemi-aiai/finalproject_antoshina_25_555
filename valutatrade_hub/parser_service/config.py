@@ -6,14 +6,19 @@ from dataclasses import dataclass, field
 from typing import Dict, Tuple
 from ..infra.settings import settings
 
-
 @dataclass
 class ParserConfig:
     """Конфигурация парсер-сервиса с использованием dataclass"""
 
-    # API ключи (загружаются из переменных окружения)
-    EXCHANGERATE_API_KEY: str = os.getenv("EXCHANGERATE_API_KEY", "your_exchangerate_api_key_here")
-    COINGECKO_API_KEY: str = os.getenv("COINGECKO_API_KEY", "")
+    # API ключи (сначала из переменных окружения, если нет — из settings)
+    EXCHANGERATE_API_KEY: str = os.getenv(
+        "EXCHANGERATE_API_KEY",
+        getattr(settings, "exchangerate_api_key", "your_exchangerate_api_key_here")
+    )
+    COINGECKO_API_KEY: str = os.getenv(
+        "COINGECKO_API_KEY",
+        getattr(settings, "coingecko_api_key", "")
+    )
 
     # Эндпоинты
     COINGECKO_URL: str = "https://api.coingecko.com/api/v3/simple/price"
@@ -81,18 +86,18 @@ class ParserConfig:
             'vs_currencies': 'usd'
         }
 
-
-# Глобальный экземпляр конфигурации
-config = ParserConfig()
-
     @classmethod
     def get_config_info(cls) -> Dict[str, any]:
         """Возвращает информацию о конфигурации"""
         return {
             "exchangerate_api_configured": cls.EXCHANGERATE_API_KEY != 'your_exchangerate_api_key_here',
             "coingecko_api_configured": bool(cls.COINGECKO_API_KEY),
-            "supported_fiat_currencies": len(cls.SUPPORTED_FIAT_CURRENCIES),
-            "supported_crypto_currencies": len(cls.SUPPORTED_CRYPTO_CURRENCIES),
+            "supported_fiat_currencies": len(cls.FIAT_CURRENCIES),
+            "supported_crypto_currencies": len(cls.CRYPTO_CURRENCIES),
             "update_interval_minutes": cls.UPDATE_INTERVAL_MINUTES,
-            "total_currency_pairs": len(cls.SUPPORTED_FIAT_CURRENCIES) + len(cls.SUPPORTED_CRYPTO_CURRENCIES) * 2
+            "total_currency_pairs": len(cls.FIAT_CURRENCIES) + len(cls.CRYPTO_CURRENCIES) * 2
         }
+
+
+# Глобальный экземпляр конфигурации
+config = ParserConfig()

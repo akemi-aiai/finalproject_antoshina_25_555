@@ -48,8 +48,8 @@ def validate_amount(amount: Any) -> float:
 
     try:
         amount_float = float(amount)
-    except (ValueError, TypeError):
-        raise ValidationError("Сумма должна быть числом")
+    except (ValueError, TypeError) as e:
+        raise ValidationError("Сумма должна быть числом") from e
 
     if amount_float <= 0:
         raise ValidationError("Сумма должна быть положительной")
