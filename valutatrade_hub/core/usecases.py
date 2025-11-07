@@ -211,13 +211,20 @@ class PortfolioManager:
         Продажа валюты
 
         Returns:
-            Tuple[старый_баланс, выручка_в_USD, курс]
+        Tuple[старый_баланс, выручка_в_USD, курс]
         """
-        # Валидация суммы
+    # Валидация суммы
         if amount <= 0:
             raise ValidationError("Сумма продажи должна быть положительной")
 
-        portfolio = self.get_portfolio(user_id)
+    # ЗАГРУЖАЕМ СВЕЖИЕ ДАННЫЕ - ИСПРАВЛЕНИЕ
+        portfolios = self._load_portfolios()
+        portfolio = None
+        for p in portfolios:
+            if p.user_id == user_id:
+                portfolio = p
+                break
+
         if not portfolio:
             raise UserNotFoundError(user_id=user_id)
 
@@ -236,19 +243,19 @@ class PortfolioManager:
             logger.warning(f"Попытка продажи при недостаточных средствах: {currency} {amount}")
             raise
 
-        # Рассчитываем выручку
+    # Рассчитываем выручку
         rate = self.exchange_service.get_exchange_rate(currency, 'USD')
         if rate is None:
             raise ApiRequestError(f"Не удалось получить курс для {currency}→USD")
 
         revenue_usd = amount * rate
 
-        # Сохраняем изменения
-        portfolios = self._load_portfolios()
+    # СОХРАНЯЕМ ИЗМЕНЕНИЯ - ИСПРАВЛЕНИЕ
         for i, p in enumerate(portfolios):
             if p.user_id == user_id:
                 portfolios[i] = portfolio
                 break
+
         self._save_portfolios(portfolios)
 
         logger.info(f"Продажа валюты: пользователь {user_id}, {amount} {currency} по курсу {rate}")

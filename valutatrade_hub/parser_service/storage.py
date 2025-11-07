@@ -145,6 +145,7 @@ class ParserStorage:
             logger.error(f"Ошибка обновления кеша: {e}")
             raise
 
+
     def load_cache(self) -> Dict[str, Any]:
         """
         Загружает данные из кеша
@@ -161,7 +162,18 @@ class ParserStorage:
 
         try:
             with open(self.cache_file, 'r', encoding='utf-8') as f:
-                return json.load(f)
+                data = json.load(f)
+
+            # ИСПРАВЛЕНИЕ: гарантируем правильную структуру
+            if "last_refresh" not in data:
+                data["last_refresh"] = None
+            if "pairs" not in data:
+                data["pairs"] = {}
+            if "metadata" not in data:
+                data["metadata"] = {"total_pairs": len(data.get("pairs", {}))}
+
+            return data
+
         except (json.JSONDecodeError, Exception) as e:
             logger.error(f"Ошибка загрузки кеша: {e}")
             return {
@@ -169,6 +181,8 @@ class ParserStorage:
                 "last_refresh": None,
                 "metadata": {"total_pairs": 0}
             }
+
+
 
     def get_cache_rates(self) -> Dict[str, Dict[str, Any]]:
         """

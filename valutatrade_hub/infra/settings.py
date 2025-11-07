@@ -37,7 +37,7 @@ class SettingsLoader:
             "backup_count": 5,
             # Новые настройки для парсер-сервиса
             "parser_update_interval": 5,
-            "exchangerate_api_key": "your_exchangerate_api_key_here",
+            "exchangerate_api_key": "935b702352e0c8d731dae5e3",
             "coingecko_api_key": "",
         }
 

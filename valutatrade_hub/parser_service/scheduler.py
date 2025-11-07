@@ -51,6 +51,8 @@ class RatesScheduler:
         if self._scheduler_thread and self._scheduler_thread.is_alive():
             self._scheduler_thread.join(timeout=5)
 
+
+
     def _scheduler_loop(self):
         """
         Основной цикл планировщика
@@ -59,12 +61,11 @@ class RatesScheduler:
 
         while not self._stop_event.is_set():
             try:
-                # Выполняем обновление
-                results = self.updater.update_all_rates()
+                # ИСПРАВЛЕНИЕ: используем правильное имя метода
+                results = self.updater.run_update()
 
                 if results["success"]:
-                    logger.debug(f"Фоновое обновление завершено. "
-                                f"Обновлено пар: {results['updated_pairs']}")
+                    logger.debug(f"Фоновое обновление завершено. Обновлено пар: {results['updated_pairs']}")
                 else:
                     logger.warning(f"Фоновое обновление завершено с ошибками: {results['errors']}")
 
@@ -75,6 +76,7 @@ class RatesScheduler:
             self._stop_event.wait(ParserConfig.UPDATE_INTERVAL_MINUTES * 60)
 
         logger.info("Планировщик остановлен")
+
 
     def get_status(self) -> Dict[str, Any]:
         """

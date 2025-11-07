@@ -251,11 +251,1901 @@
         "status_code": 200,
         "etag": ""
       }
+    },
+    "BNB_USD_2025-11-07T03:41:23Z": {
+      "id": "BNB_USD_2025-11-07T03:41:23Z",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 965.86,
+      "timestamp": "2025-11-07T03:41:23.879276+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_2025-11-07T03:41:23Z": {
+      "id": "BTC_USD_2025-11-07T03:41:23Z",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 102097,
+      "timestamp": "2025-11-07T03:41:23.879371+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_2025-11-07T03:41:23Z": {
+      "id": "ADA_USD_2025-11-07T03:41:23Z",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.539339,
+      "timestamp": "2025-11-07T03:41:23.879413+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_2025-11-07T03:41:23Z": {
+      "id": "DOGE_USD_2025-11-07T03:41:23Z",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.164512,
+      "timestamp": "2025-11-07T03:41:23.879437+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_2025-11-07T03:41:23Z": {
+      "id": "ETH_USD_2025-11-07T03:41:23Z",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3351.21,
+      "timestamp": "2025-11-07T03:41:23.879459+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_2025-11-07T03:41:23Z": {
+      "id": "LTC_USD_2025-11-07T03:41:23Z",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 88.9,
+      "timestamp": "2025-11-07T03:41:23.879479+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_2025-11-07T03:41:23Z": {
+      "id": "DOT_USD_2025-11-07T03:41:23Z",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.81,
+      "timestamp": "2025-11-07T03:41:23.879499+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_2025-11-07T03:41:23Z": {
+      "id": "XRP_USD_2025-11-07T03:41:23Z",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T03:41:23.879518+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_2025-11-07T03:41:23Z": {
+      "id": "SOL_USD_2025-11-07T03:41:23Z",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.41,
+      "timestamp": "2025-11-07T03:41:23.879537+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_2025-11-07T06:42:35Z": {
+      "id": "BNB_USD_2025-11-07T06:42:35Z",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 965.21,
+      "timestamp": "2025-11-07T06:42:35.466355+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_2025-11-07T06:42:35Z": {
+      "id": "BTC_USD_2025-11-07T06:42:35Z",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 102038,
+      "timestamp": "2025-11-07T06:42:35.466438+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_2025-11-07T06:42:35Z": {
+      "id": "ADA_USD_2025-11-07T06:42:35Z",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.543034,
+      "timestamp": "2025-11-07T06:42:35.466462+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_2025-11-07T06:42:35Z": {
+      "id": "DOGE_USD_2025-11-07T06:42:35Z",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.165755,
+      "timestamp": "2025-11-07T06:42:35.466477+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_2025-11-07T06:42:35Z": {
+      "id": "ETH_USD_2025-11-07T06:42:35Z",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3354.34,
+      "timestamp": "2025-11-07T06:42:35.466489+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_2025-11-07T06:42:35Z": {
+      "id": "LTC_USD_2025-11-07T06:42:35Z",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 89.8,
+      "timestamp": "2025-11-07T06:42:35.466501+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_2025-11-07T06:42:35Z": {
+      "id": "DOT_USD_2025-11-07T06:42:35Z",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.83,
+      "timestamp": "2025-11-07T06:42:35.466514+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_2025-11-07T06:42:35Z": {
+      "id": "XRP_USD_2025-11-07T06:42:35Z",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T06:42:35.466526+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_2025-11-07T06:42:35Z": {
+      "id": "SOL_USD_2025-11-07T06:42:35Z",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.32,
+      "timestamp": "2025-11-07T06:42:35.466538+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_2025-11-07T06:43:07Z": {
+      "id": "BNB_USD_2025-11-07T06:43:07Z",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 965.21,
+      "timestamp": "2025-11-07T06:43:07.240079+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_2025-11-07T06:43:07Z": {
+      "id": "BTC_USD_2025-11-07T06:43:07Z",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 102038,
+      "timestamp": "2025-11-07T06:43:07.240164+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_2025-11-07T06:43:07Z": {
+      "id": "ADA_USD_2025-11-07T06:43:07Z",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.543034,
+      "timestamp": "2025-11-07T06:43:07.240210+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_2025-11-07T06:43:07Z": {
+      "id": "DOGE_USD_2025-11-07T06:43:07Z",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.165755,
+      "timestamp": "2025-11-07T06:43:07.240249+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_2025-11-07T06:43:07Z": {
+      "id": "ETH_USD_2025-11-07T06:43:07Z",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3354.34,
+      "timestamp": "2025-11-07T06:43:07.240285+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_2025-11-07T06:43:07Z": {
+      "id": "LTC_USD_2025-11-07T06:43:07Z",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 89.8,
+      "timestamp": "2025-11-07T06:43:07.240320+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_2025-11-07T06:43:07Z": {
+      "id": "DOT_USD_2025-11-07T06:43:07Z",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.83,
+      "timestamp": "2025-11-07T06:43:07.240354+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_2025-11-07T06:43:07Z": {
+      "id": "XRP_USD_2025-11-07T06:43:07Z",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T06:43:07.240388+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_2025-11-07T06:43:07Z": {
+      "id": "SOL_USD_2025-11-07T06:43:07Z",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.32,
+      "timestamp": "2025-11-07T06:43:07.240423+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_2025-11-07T06:48:13Z": {
+      "id": "BNB_USD_2025-11-07T06:48:13Z",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 965.49,
+      "timestamp": "2025-11-07T06:48:13.150877+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_2025-11-07T06:48:13Z": {
+      "id": "BTC_USD_2025-11-07T06:48:13Z",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 102027,
+      "timestamp": "2025-11-07T06:48:13.150941+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_2025-11-07T06:48:13Z": {
+      "id": "ADA_USD_2025-11-07T06:48:13Z",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.542917,
+      "timestamp": "2025-11-07T06:48:13.150968+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_2025-11-07T06:48:13Z": {
+      "id": "DOGE_USD_2025-11-07T06:48:13Z",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.165817,
+      "timestamp": "2025-11-07T06:48:13.150990+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_2025-11-07T06:48:13Z": {
+      "id": "ETH_USD_2025-11-07T06:48:13Z",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3353.33,
+      "timestamp": "2025-11-07T06:48:13.151011+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_2025-11-07T06:48:13Z": {
+      "id": "LTC_USD_2025-11-07T06:48:13Z",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 89.72,
+      "timestamp": "2025-11-07T06:48:13.151031+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_2025-11-07T06:48:13Z": {
+      "id": "DOT_USD_2025-11-07T06:48:13Z",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.82,
+      "timestamp": "2025-11-07T06:48:13.151052+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_2025-11-07T06:48:13Z": {
+      "id": "XRP_USD_2025-11-07T06:48:13Z",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T06:48:13.151072+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_2025-11-07T06:48:13Z": {
+      "id": "SOL_USD_2025-11-07T06:48:13Z",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.29,
+      "timestamp": "2025-11-07T06:48:13.151092+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_2025-11-07T06:59:34Z": {
+      "id": "BNB_USD_2025-11-07T06:59:34Z",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 964.87,
+      "timestamp": "2025-11-07T06:59:34.558119+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_2025-11-07T06:59:34Z": {
+      "id": "BTC_USD_2025-11-07T06:59:34Z",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101864,
+      "timestamp": "2025-11-07T06:59:34.558222+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_2025-11-07T06:59:34Z": {
+      "id": "ADA_USD_2025-11-07T06:59:34Z",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.542896,
+      "timestamp": "2025-11-07T06:59:34.558259+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_2025-11-07T06:59:34Z": {
+      "id": "DOGE_USD_2025-11-07T06:59:34Z",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.165613,
+      "timestamp": "2025-11-07T06:59:34.558284+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_2025-11-07T06:59:34Z": {
+      "id": "ETH_USD_2025-11-07T06:59:34Z",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3347.34,
+      "timestamp": "2025-11-07T06:59:34.558306+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_2025-11-07T06:59:34Z": {
+      "id": "LTC_USD_2025-11-07T06:59:34Z",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 89.52,
+      "timestamp": "2025-11-07T06:59:34.558327+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_2025-11-07T06:59:34Z": {
+      "id": "DOT_USD_2025-11-07T06:59:34Z",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.81,
+      "timestamp": "2025-11-07T06:59:34.558347+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_2025-11-07T06:59:34Z": {
+      "id": "XRP_USD_2025-11-07T06:59:34Z",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.22,
+      "timestamp": "2025-11-07T06:59:34.558379+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_2025-11-07T06:59:34Z": {
+      "id": "SOL_USD_2025-11-07T06:59:34Z",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 156.97,
+      "timestamp": "2025-11-07T06:59:34.558402+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_2025-11-07T07:03:57Z": {
+      "id": "BNB_USD_2025-11-07T07:03:57Z",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 965.65,
+      "timestamp": "2025-11-07T07:03:57.521329+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_2025-11-07T07:03:57Z": {
+      "id": "BTC_USD_2025-11-07T07:03:57Z",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101885,
+      "timestamp": "2025-11-07T07:03:57.521408+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_2025-11-07T07:03:57Z": {
+      "id": "ADA_USD_2025-11-07T07:03:57Z",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.543013,
+      "timestamp": "2025-11-07T07:03:57.521438+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_2025-11-07T07:03:57Z": {
+      "id": "DOGE_USD_2025-11-07T07:03:57Z",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.165695,
+      "timestamp": "2025-11-07T07:03:57.521460+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_2025-11-07T07:03:57Z": {
+      "id": "ETH_USD_2025-11-07T07:03:57Z",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3352.54,
+      "timestamp": "2025-11-07T07:03:57.521481+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_2025-11-07T07:03:57Z": {
+      "id": "LTC_USD_2025-11-07T07:03:57Z",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 89.51,
+      "timestamp": "2025-11-07T07:03:57.521501+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_2025-11-07T07:03:57Z": {
+      "id": "DOT_USD_2025-11-07T07:03:57Z",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.81,
+      "timestamp": "2025-11-07T07:03:57.521522+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_2025-11-07T07:03:57Z": {
+      "id": "XRP_USD_2025-11-07T07:03:57Z",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.22,
+      "timestamp": "2025-11-07T07:03:57.521542+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_2025-11-07T07:03:57Z": {
+      "id": "SOL_USD_2025-11-07T07:03:57Z",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 156.95,
+      "timestamp": "2025-11-07T07:03:57.521560+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_2025-11-07T07:08:59Z": {
+      "id": "BNB_USD_2025-11-07T07:08:59Z",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 966.3,
+      "timestamp": "2025-11-07T07:08:59.192664+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_2025-11-07T07:08:59Z": {
+      "id": "BTC_USD_2025-11-07T07:08:59Z",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101904,
+      "timestamp": "2025-11-07T07:08:59.192789+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_2025-11-07T07:08:59Z": {
+      "id": "ADA_USD_2025-11-07T07:08:59Z",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.54239,
+      "timestamp": "2025-11-07T07:08:59.192826+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_2025-11-07T07:08:59Z": {
+      "id": "DOGE_USD_2025-11-07T07:08:59Z",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.165759,
+      "timestamp": "2025-11-07T07:08:59.192849+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_2025-11-07T07:08:59Z": {
+      "id": "ETH_USD_2025-11-07T07:08:59Z",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3355.26,
+      "timestamp": "2025-11-07T07:08:59.192870+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_2025-11-07T07:08:59Z": {
+      "id": "LTC_USD_2025-11-07T07:08:59Z",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 89.64,
+      "timestamp": "2025-11-07T07:08:59.192890+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_2025-11-07T07:08:59Z": {
+      "id": "DOT_USD_2025-11-07T07:08:59Z",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.81,
+      "timestamp": "2025-11-07T07:08:59.192911+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_2025-11-07T07:08:59Z": {
+      "id": "XRP_USD_2025-11-07T07:08:59Z",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.22,
+      "timestamp": "2025-11-07T07:08:59.192931+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_2025-11-07T07:08:59Z": {
+      "id": "SOL_USD_2025-11-07T07:08:59Z",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 156.96,
+      "timestamp": "2025-11-07T07:08:59.192951+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_072228_coingecko": {
+      "id": "BNB_USD_20251107_072228_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 967.94,
+      "timestamp": "2025-11-07T07:22:28.332328+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_072228_coingecko": {
+      "id": "BTC_USD_20251107_072228_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101936.0,
+      "timestamp": "2025-11-07T07:22:28.332520+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_072228_coingecko": {
+      "id": "ADA_USD_20251107_072228_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.543426,
+      "timestamp": "2025-11-07T07:22:28.332573+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_072228_coingecko": {
+      "id": "DOGE_USD_20251107_072228_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166014,
+      "timestamp": "2025-11-07T07:22:28.332607+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_072228_coingecko": {
+      "id": "ETH_USD_20251107_072228_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3361.46,
+      "timestamp": "2025-11-07T07:22:28.332636+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_072228_coingecko": {
+      "id": "LTC_USD_20251107_072228_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 89.97,
+      "timestamp": "2025-11-07T07:22:28.332662+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_072228_coingecko": {
+      "id": "DOT_USD_20251107_072228_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.81,
+      "timestamp": "2025-11-07T07:22:28.332689+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_072228_coingecko": {
+      "id": "XRP_USD_20251107_072228_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T07:22:28.332714+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_072228_coingecko": {
+      "id": "SOL_USD_20251107_072228_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.38,
+      "timestamp": "2025-11-07T07:22:28.332739+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_082310_coingecko": {
+      "id": "BNB_USD_20251107_082310_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 967.43,
+      "timestamp": "2025-11-07T08:23:10.328309+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_082310_coingecko": {
+      "id": "BTC_USD_20251107_082310_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101768.0,
+      "timestamp": "2025-11-07T08:23:10.328461+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_082310_coingecko": {
+      "id": "ADA_USD_20251107_082310_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.546679,
+      "timestamp": "2025-11-07T08:23:10.328544+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_082310_coingecko": {
+      "id": "DOGE_USD_20251107_082310_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166673,
+      "timestamp": "2025-11-07T08:23:10.328589+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_082310_coingecko": {
+      "id": "ETH_USD_20251107_082310_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3343.58,
+      "timestamp": "2025-11-07T08:23:10.328627+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_082310_coingecko": {
+      "id": "LTC_USD_20251107_082310_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 90.31,
+      "timestamp": "2025-11-07T08:23:10.328677+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_082310_coingecko": {
+      "id": "DOT_USD_20251107_082310_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.84,
+      "timestamp": "2025-11-07T08:23:10.328712+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_082310_coingecko": {
+      "id": "XRP_USD_20251107_082310_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T08:23:10.328733+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_082310_coingecko": {
+      "id": "SOL_USD_20251107_082310_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.56,
+      "timestamp": "2025-11-07T08:23:10.328801+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_082338_coingecko": {
+      "id": "BNB_USD_20251107_082338_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 967.43,
+      "timestamp": "2025-11-07T08:23:38.608019+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_082338_coingecko": {
+      "id": "BTC_USD_20251107_082338_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101768.0,
+      "timestamp": "2025-11-07T08:23:38.608101+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_082338_coingecko": {
+      "id": "ADA_USD_20251107_082338_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.546679,
+      "timestamp": "2025-11-07T08:23:38.608140+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_082338_coingecko": {
+      "id": "DOGE_USD_20251107_082338_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166673,
+      "timestamp": "2025-11-07T08:23:38.608165+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_082338_coingecko": {
+      "id": "ETH_USD_20251107_082338_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3343.58,
+      "timestamp": "2025-11-07T08:23:38.608187+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_082338_coingecko": {
+      "id": "LTC_USD_20251107_082338_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 90.31,
+      "timestamp": "2025-11-07T08:23:38.608207+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_082338_coingecko": {
+      "id": "DOT_USD_20251107_082338_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.84,
+      "timestamp": "2025-11-07T08:23:38.608229+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_082338_coingecko": {
+      "id": "XRP_USD_20251107_082338_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T08:23:38.608248+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_082338_coingecko": {
+      "id": "SOL_USD_20251107_082338_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.56,
+      "timestamp": "2025-11-07T08:23:38.608267+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_083000_coingecko": {
+      "id": "BNB_USD_20251107_083000_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 968.51,
+      "timestamp": "2025-11-07T08:30:00.833451+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_083000_coingecko": {
+      "id": "BTC_USD_20251107_083000_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101801.0,
+      "timestamp": "2025-11-07T08:30:00.833538+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_083000_coingecko": {
+      "id": "ADA_USD_20251107_083000_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.546394,
+      "timestamp": "2025-11-07T08:30:00.833626+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_083000_coingecko": {
+      "id": "DOGE_USD_20251107_083000_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166646,
+      "timestamp": "2025-11-07T08:30:00.833658+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_083000_coingecko": {
+      "id": "ETH_USD_20251107_083000_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3351.35,
+      "timestamp": "2025-11-07T08:30:00.833677+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_083000_coingecko": {
+      "id": "LTC_USD_20251107_083000_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 90.32,
+      "timestamp": "2025-11-07T08:30:00.833693+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_083000_coingecko": {
+      "id": "DOT_USD_20251107_083000_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.84,
+      "timestamp": "2025-11-07T08:30:00.833709+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_083000_coingecko": {
+      "id": "XRP_USD_20251107_083000_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.23,
+      "timestamp": "2025-11-07T08:30:00.833724+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_083000_coingecko": {
+      "id": "SOL_USD_20251107_083000_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.64,
+      "timestamp": "2025-11-07T08:30:00.833739+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_085029_coingecko": {
+      "id": "BNB_USD_20251107_085029_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 964.7,
+      "timestamp": "2025-11-07T08:50:29.382405+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_085029_coingecko": {
+      "id": "BTC_USD_20251107_085029_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101486.0,
+      "timestamp": "2025-11-07T08:50:29.382481+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_085029_coingecko": {
+      "id": "ADA_USD_20251107_085029_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.546379,
+      "timestamp": "2025-11-07T08:50:29.382602+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_085029_coingecko": {
+      "id": "DOGE_USD_20251107_085029_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166067,
+      "timestamp": "2025-11-07T08:50:29.382667+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_085029_coingecko": {
+      "id": "ETH_USD_20251107_085029_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3336.21,
+      "timestamp": "2025-11-07T08:50:29.382699+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_085029_coingecko": {
+      "id": "LTC_USD_20251107_085029_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 90.0,
+      "timestamp": "2025-11-07T08:50:29.382721+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_085029_coingecko": {
+      "id": "DOT_USD_20251107_085029_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.83,
+      "timestamp": "2025-11-07T08:50:29.382742+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_085029_coingecko": {
+      "id": "XRP_USD_20251107_085029_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.22,
+      "timestamp": "2025-11-07T08:50:29.382763+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_085029_coingecko": {
+      "id": "SOL_USD_20251107_085029_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.03,
+      "timestamp": "2025-11-07T08:50:29.382784+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_085040_coingecko": {
+      "id": "BNB_USD_20251107_085040_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 964.7,
+      "timestamp": "2025-11-07T08:50:40.133758+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_085040_coingecko": {
+      "id": "BTC_USD_20251107_085040_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101486.0,
+      "timestamp": "2025-11-07T08:50:40.133840+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_085040_coingecko": {
+      "id": "ADA_USD_20251107_085040_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.546379,
+      "timestamp": "2025-11-07T08:50:40.133872+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_085040_coingecko": {
+      "id": "DOGE_USD_20251107_085040_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166067,
+      "timestamp": "2025-11-07T08:50:40.133896+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_085040_coingecko": {
+      "id": "ETH_USD_20251107_085040_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3336.21,
+      "timestamp": "2025-11-07T08:50:40.133918+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_085040_coingecko": {
+      "id": "LTC_USD_20251107_085040_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 90.0,
+      "timestamp": "2025-11-07T08:50:40.133939+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_085040_coingecko": {
+      "id": "DOT_USD_20251107_085040_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.83,
+      "timestamp": "2025-11-07T08:50:40.133960+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_085040_coingecko": {
+      "id": "XRP_USD_20251107_085040_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.22,
+      "timestamp": "2025-11-07T08:50:40.133980+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_085040_coingecko": {
+      "id": "SOL_USD_20251107_085040_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.03,
+      "timestamp": "2025-11-07T08:50:40.133999+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_085452_coingecko": {
+      "id": "BNB_USD_20251107_085452_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 964.99,
+      "timestamp": "2025-11-07T08:54:52.583472+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_085452_coingecko": {
+      "id": "BTC_USD_20251107_085452_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101476.0,
+      "timestamp": "2025-11-07T08:54:52.583563+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_085452_coingecko": {
+      "id": "ADA_USD_20251107_085452_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.546216,
+      "timestamp": "2025-11-07T08:54:52.583624+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_085452_coingecko": {
+      "id": "DOGE_USD_20251107_085452_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166051,
+      "timestamp": "2025-11-07T08:54:52.583671+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_085452_coingecko": {
+      "id": "ETH_USD_20251107_085452_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3336.18,
+      "timestamp": "2025-11-07T08:54:52.583706+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_085452_coingecko": {
+      "id": "LTC_USD_20251107_085452_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 90.11,
+      "timestamp": "2025-11-07T08:54:52.583728+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_085452_coingecko": {
+      "id": "DOT_USD_20251107_085452_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.83,
+      "timestamp": "2025-11-07T08:54:52.583749+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_085452_coingecko": {
+      "id": "XRP_USD_20251107_085452_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.22,
+      "timestamp": "2025-11-07T08:54:52.583768+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_085452_coingecko": {
+      "id": "SOL_USD_20251107_085452_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.04,
+      "timestamp": "2025-11-07T08:54:52.583787+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BNB_USD_20251107_085501_coingecko": {
+      "id": "BNB_USD_20251107_085501_coingecko",
+      "from_currency": "BNB",
+      "to_currency": "USD",
+      "rate": 964.99,
+      "timestamp": "2025-11-07T08:55:01.165751+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "binancecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "BTC_USD_20251107_085501_coingecko": {
+      "id": "BTC_USD_20251107_085501_coingecko",
+      "from_currency": "BTC",
+      "to_currency": "USD",
+      "rate": 101476.0,
+      "timestamp": "2025-11-07T08:55:01.165835+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ADA_USD_20251107_085501_coingecko": {
+      "id": "ADA_USD_20251107_085501_coingecko",
+      "from_currency": "ADA",
+      "to_currency": "USD",
+      "rate": 0.546216,
+      "timestamp": "2025-11-07T08:55:01.165886+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "cardano",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOGE_USD_20251107_085501_coingecko": {
+      "id": "DOGE_USD_20251107_085501_coingecko",
+      "from_currency": "DOGE",
+      "to_currency": "USD",
+      "rate": 0.166051,
+      "timestamp": "2025-11-07T08:55:01.165924+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "dogecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "ETH_USD_20251107_085501_coingecko": {
+      "id": "ETH_USD_20251107_085501_coingecko",
+      "from_currency": "ETH",
+      "to_currency": "USD",
+      "rate": 3336.18,
+      "timestamp": "2025-11-07T08:55:01.165962+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "LTC_USD_20251107_085501_coingecko": {
+      "id": "LTC_USD_20251107_085501_coingecko",
+      "from_currency": "LTC",
+      "to_currency": "USD",
+      "rate": 90.11,
+      "timestamp": "2025-11-07T08:55:01.165999+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "litecoin",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "DOT_USD_20251107_085501_coingecko": {
+      "id": "DOT_USD_20251107_085501_coingecko",
+      "from_currency": "DOT",
+      "to_currency": "USD",
+      "rate": 2.83,
+      "timestamp": "2025-11-07T08:55:01.166036+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "polkadot",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "XRP_USD_20251107_085501_coingecko": {
+      "id": "XRP_USD_20251107_085501_coingecko",
+      "from_currency": "XRP",
+      "to_currency": "USD",
+      "rate": 2.22,
+      "timestamp": "2025-11-07T08:55:01.166071+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "ripple",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
+    },
+    "SOL_USD_20251107_085501_coingecko": {
+      "id": "SOL_USD_20251107_085501_coingecko",
+      "from_currency": "SOL",
+      "to_currency": "USD",
+      "rate": 157.04,
+      "timestamp": "2025-11-07T08:55:01.166106+00:00",
+      "source": "coingecko",
+      "meta": {
+        "raw_id": "solana",
+        "request_ms": 0,
+        "status_code": 200,
+        "etag": ""
+      }
     }
   },
   "metadata": {
-    "last_update": "2025-11-07T03:13:34.753001+00:00",
-    "total_records": 18,
+    "last_update": "2025-11-07T08:55:02.923196+00:00",
+    "total_records": 153,
     "version": "1.0"
   }
 }

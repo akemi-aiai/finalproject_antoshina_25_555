@@ -43,6 +43,7 @@ class RatesUpdater:
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "sources_processed": [],
             "rates_fetched": 0,
+            "updated_pairs": 0,
             "errors": [],
             "success": True
         }
@@ -65,19 +66,27 @@ class RatesUpdater:
                 rates = self.clients[source].fetch_rates()
 
                 # Создаем исторические записи
+                source_rates_count = 0
                 for pair, rate in rates.items():
-                    record = self._create_historical_record(pair, rate, source)
-                    historical_records.append(record)
-                    all_rates[pair] = {
-                        "rate": rate,
-                        "updated_at": record["timestamp"],
-                        "source": source
-                    }
+                    try:
+                        record = self._create_historical_record(pair, rate, source)
+                        historical_records.append(record)
+                        all_rates[pair] = {
+                            "rate": rate,
+                            "updated_at": record["timestamp"],
+                            "source": source
+                        }
+                        source_rates_count += 1
+                    except Exception as e:
+                        logger.warning(f"Ошибка создания записи для пары {pair}: {e}")
+                        continue
 
                 results["rates_fetched"] += len(rates)
+                results["updated_pairs"] += source_rates_count
                 results["sources_processed"].append({
                     "source": source,
                     "rates_count": len(rates),
+                    "updated_count": source_rates_count,
                     "status": "success"
                 })
 
@@ -90,6 +99,7 @@ class RatesUpdater:
                 results["sources_processed"].append({
                     "source": source,
                     "rates_count": 0,
+                    "updated_count": 0,
                     "status": "error",
                     "error": str(e)
                 })
@@ -101,6 +111,7 @@ class RatesUpdater:
                 results["sources_processed"].append({
                     "source": source,
                     "rates_count": 0,
+                    "updated_count": 0,
                     "status": "error",
                     "error": str(e)
                 })
@@ -116,7 +127,8 @@ class RatesUpdater:
                 # Обновляем кеш
                 self.storage.update_cache(all_rates)
 
-                logger.info(f"Сохранено {len(all_rates)} курсов в кеш")
+                logger.info(f"Обновлен кеш курсов: {len(all_rates)} пар")
+                logger.info(f"Сохранено {len(historical_records)} курсов в кеш")
 
             except Exception as e:
                 error_msg = f"Ошибка сохранения данных: {e}"
@@ -128,10 +140,13 @@ class RatesUpdater:
         if results["success"]:
             logger.info(f"Обновление завершено успешно. "
                        f"Обработано источников: {len(results['sources_processed'])}, "
-                       f"Получено курсов: {results['rates_fetched']}")
+                       f"Получено курсов: {results['rates_fetched']}, "
+                       f"Обновлено пар: {results['updated_pairs']}")
         else:
+            successful_sources = len([s for s in results['sources_processed'] if s['status'] == 'success'])
             logger.warning(f"Обновление завершено с ошибками. "
-                          f"Успешных источников: {len([s for s in results['sources_processed'] if s['status'] == 'success'])}, "
+                          f"Успешных источников: {successful_sources}, "
+                          f"Обновлено пар: {results['updated_pairs']}, "
                           f"Ошибок: {len(results['errors'])}")
 
         return results
@@ -149,50 +164,67 @@ class RatesUpdater:
             Историческая запись
         """
         timestamp = datetime.now(timezone.utc)
-        from_currency, to_currency = pair.split("_")
 
-        record_id = f"{from_currency}_{to_currency}_{timestamp.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+        # безопасное разделение пары
+        if "_" in pair:
+            from_currency, to_currency = pair.split("_", 1)  # Разделяем только по первому '_'
+        else:
+            # Если нет разделителя, используем всю строку как from_currency, а to_currency = BASE_CURRENCY
+            from_currency = pair
+            to_currency = config.BASE_CURRENCY
+            logger.warning(f"Нестандартный формат пары: {pair}, преобразовано в {from_currency}_{to_currency}")
+
+        record_id = f"{from_currency}_{to_currency}_{timestamp.strftime('%Y%m%d_%H%M%S')}_{source}"
+
+        # безопасное получение raw_id
+        raw_id = config.CRYPTO_ID_MAP.get(from_currency, from_currency) if hasattr(config, 'CRYPTO_ID_MAP') else from_currency
 
         return {
             "id": record_id,
             "from_currency": from_currency,
             "to_currency": to_currency,
-            "rate": rate,
+            "rate": float(rate),
             "timestamp": timestamp.isoformat(),
             "source": source,
             "meta": {
-                "raw_id": config.CRYPTO_ID_MAP.get(from_currency, from_currency),
-                "request_ms": 0,  # Заполняется в API клиентах
+                "raw_id": raw_id,
+                "request_ms": 0,
                 "status_code": 200,
                 "etag": ""
             }
         }
 
-    def get_update_status(self) -> Dict[str, Any]:
-        """
-        Возвращает статус последнего обновления """
 
+
+    def get_update_status(self) -> Dict[str, Any]:
         try:
             cache_data = self.storage.load_cache()
             history_data = self.storage.load_historical_data()
 
+            cache_last_refresh = cache_data.get("last_refresh")
+            history_last_update = history_data.get("metadata", {}).get("last_update")
+
+            last_update = history_last_update or cache_last_refresh or datetime.now(timezone.utc).isoformat()
+
             return {
                 "cache": {
-                    "last_refresh": cache_data.get("last_refresh"),
+                    "last_refresh": cache_last_refresh,
                     "total_pairs": len(cache_data.get("pairs", {})),
                     "is_fresh": self.storage.is_cache_fresh()
                 },
                 "history": {
                     "total_records": len(history_data.get("history", {})),
-                    "last_update": history_data.get("metadata", {}).get("last_update")
-                }
+                    "last_update": last_update
+                },
+                "last_update": last_update
             }
-
         except Exception as e:
             logger.error(f"Ошибка получения статуса: {e}")
+            current_time = datetime.now(timezone.utc).isoformat()
             return {
                 "cache": {"last_refresh": None, "total_pairs": 0, "is_fresh": False},
-                "history": {"total_records": 0, "last_update": None}
+                "history": {"total_records": 0, "last_update": current_time},
+                "last_update": current_time
             }
 
 

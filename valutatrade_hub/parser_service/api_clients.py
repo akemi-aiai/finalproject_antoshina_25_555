@@ -24,8 +24,41 @@ class BaseApiClient(ABC):
 
     @abstractmethod
     def fetch_rates(self) -> Dict[str, float]:
-        """Получает курсы валют от API"""
-        pass
+        """Получает курсы фиатных валют от ExchangeRate-API"""
+        logger.info("Получение курсов фиатных валют от ExchangeRate-API...")
+
+        try:
+            url = config.get_exchangerate_url()
+            result = self._make_request(url)
+            api_data = result["data"]
+
+            # Проверяем успешность ответа
+            if api_data.get('result') != 'success':
+                error_msg = api_data.get('error-type', 'unknown error')
+                raise ApiRequestError(f"ExchangeRate-API error: {error_msg}")
+
+            rates = {}
+            base_currency = api_data.get('base_code', config.BASE_CURRENCY)
+
+            for currency, rate in api_data.get('rates', {}).items():
+                if currency in config.FIAT_CURRENCIES and currency != base_currency:
+
+                    if base_currency == "USD":
+                        # Если база USD, то курс уже в правильном формате: USD->валюта
+                        pair = f"{currency}_{base_currency}"
+                        rates[pair] = rate
+                    else:
+                        # Если нужна конвертация
+                        pair = f"{currency}_{config.BASE_CURRENCY}"
+                        # Логика конвертации зависит от API ответа
+
+            logger.info(f"Получено {len(rates)} фиатных курсов от ExchangeRate-API")
+            return rates
+
+        except Exception as e:
+            logger.error(f"Ошибка получения фиатных курсов: {e}")
+            return {}
+
 
     def _make_request(self, url: str, params: Dict = None) -> Dict[str, Any]:
         """Выполняет HTTP запрос с повторными попытками"""

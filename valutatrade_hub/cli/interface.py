@@ -127,11 +127,22 @@ class WalletCLI(cmd.Cmd):
 
     @log_action("Просмотр портфеля")
     def do_show_portfolio(self, args):
-        """Показать портфель: show-portfolio [--base <currency>]"""
+        """Показать портфель: show_portfolio [--base <currency>]"""
         if not self._check_auth():
             return
 
         try:
+            # ПЕРЕЗАГРУЖАЕМ СВЕЖИЕ ДАННЫЕ
+            from ..core.usecases import PortfolioManager
+            portfolio_manager = PortfolioManager()
+            fresh_portfolio = portfolio_manager.get_portfolio(self.current_user.user_id)
+
+            if not fresh_portfolio:
+                print("Портфель не найден")
+                return
+
+            self.current_portfolio = fresh_portfolio  # ОБНОВЛЯЕМ КЕШ
+
             parsed_args = self._parse_args(args)
             base_currency = parsed_args.get('base', 'USD').upper()
 
@@ -150,6 +161,7 @@ class WalletCLI(cmd.Cmd):
 
             total_value = 0.0
 
+            # ВЫВОДИМ ВСЕ ВАЛЮТЫ
             for currency, wallet in wallets.items():
                 balance = wallet.balance
 
@@ -157,7 +169,11 @@ class WalletCLI(cmd.Cmd):
                     value_in_base = balance
                 else:
                     rate = self.exchange_service.get_exchange_rate(currency, base_currency)
-                    value_in_base = wallet.balance * rate
+                    if rate is None:
+                        print(f"Не удалось получить курс для {currency}→{base_currency}")
+                        value_in_base = 0
+                    else:
+                        value_in_base = wallet.balance * rate
 
                 total_value += value_in_base
 
@@ -176,15 +192,10 @@ class WalletCLI(cmd.Cmd):
             print("-" * 60)
             print(f"ИТОГО: {format_currency_amount(total_value, base_currency)}")
 
-        except (CurrencyNotFoundError, ValidationError) as e:
-            print(f"Ошибка: {e}")
-            if "Неизвестная базовая валюта" in str(e):
-                print("Доступные базовые валюты: USD, EUR, BTC, ETH")
-        except ApiRequestError as e:
-            print(f"Ошибка получения курсов: {e}")
         except Exception as e:
-            logger.error(f"Неожиданная ошибка при показе портфеля: {e}")
+            logger.error(f"Ошибка при показе портфеля: {e}")
             print(f"Ошибка показа портфеля: {e}")
+
 
     @log_action("BUY", verbose=True)
     def do_buy(self, args):
@@ -221,6 +232,7 @@ class WalletCLI(cmd.Cmd):
             print("Изменения в портфеле:")
             print(f"   - {currency}: было {format_currency_amount(old_balance, currency)} → стало {format_currency_amount(old_balance + amount, currency)}")
             print(f"Оценочная стоимость покупки: ${cost_usd:,.2f}")
+
 
         except InsufficientFundsError as e:
             print(f"Ошибка: {e}")
@@ -613,12 +625,11 @@ class WalletCLI(cmd.Cmd):
             print("\nКонфигурация:")
             from ..parser_service.config import ParserConfig
             config_ok = ParserConfig.validate_config()
-            config_icon = "✔" if config_ok else "⚠"
+            config_icon = "✔" if config_ok else "no"
             status_text = "Настроены" if config_ok else "Требуют настройки"
             print(f"{config_icon} API ключи: {status_text}")
             print(f"Фиатные валюты: {len(ParserConfig.SUPPORTED_FIAT_CURRENCIES)}")
             print(f"Криптовалюты: {len(ParserConfig.SUPPORTED_CRYPTO_CURRENCIES)}")
-
 
 
         except Exception as e:
@@ -646,7 +657,7 @@ class WalletCLI(cmd.Cmd):
             # Статус конфигурации
             print("\nКонфигурация:")
             print(f"Настройки: {'Валидны' if config_valid else 'Требуют внимания'}")
-            print(f"ExchangeRate-API: {'Настроен' if config.EXCHANGERATE_API_KEY != 'your_exchangerate_api_key_here' else 'Не настроен'}")
+            print(f"ExchangeRate-API: {'Настроен' if config.EXCHANGERATE_API_KEY != '935b702352e0c8d731dae5e3' else 'Не настроен'}")
             print(f"CoinGecko: {'Настроен' if config.COINGECKO_API_KEY else 'Публичный доступ'}")
             print(f"Фиатные валюты: {len(config.FIAT_CURRENCIES)}")
             print(f"₿ Криптовалюты: {len(config.CRYPTO_CURRENCIES)}")
@@ -859,7 +870,7 @@ class WalletCLI(cmd.Cmd):
 
             if not history:
                 print(f"История для пары {pair} не найдена")
-                print("Проверьте правильность пары или выполните 'update-rates'")
+                print("Проверьте правильность пары или выполните 'update_rates'")
                 return
 
             self._display_history_table(history, pair)
@@ -869,7 +880,7 @@ class WalletCLI(cmd.Cmd):
             print(f"Ошибка получения истории: {e}")
 
 
-        """Показать поддерживаемые валютные пары: supported-pairs"""
+        """Показать поддерживаемые валютные пары: supported_pairs"""
         try:
             from ..parser_service.config import config
 
@@ -899,8 +910,8 @@ class WalletCLI(cmd.Cmd):
             print(f"\nВсего крипто пар: {len(crypto_pairs)}")
             print(f"Всего пар всего: {len(fiat_pairs) + len(crypto_pairs)}")
 
-            print("\nИспользуйте 'show-rates --currency <код>' для просмотра конкретной валюты")
-            print("Используйте 'show-rates --top N' для просмотра топ-N самых дорогих валют")
+            print("\nИспользуйте 'show_rates --currency <код>' для просмотра конкретной валюты")
+            print("Используйте 'show_rates --top N' для просмотра топ-N самых дорогих валют")
 
         except Exception as e:
             logger.error(f"Ошибка при получении списка пар: {e}")
@@ -920,6 +931,7 @@ class WalletCLI(cmd.Cmd):
             table.field_names = ["Код", "Тип", "Название", "Доп. информация"]
             table.align = "l"
 
+            # ИСПРАВЛЕНИЕ: показываем ВСЕ валюты
             for code, currency in sorted(currencies.items()):
                 currency_type = "CRYPTO" if hasattr(currency, 'algorithm') else "FIAT"
 
@@ -937,13 +949,16 @@ class WalletCLI(cmd.Cmd):
 
             print("Поддерживаемые валюты:")
             print(table)
+            print(f"Всего валют: {len(currencies)}")
 
         except Exception as e:
             logger.error(f"Ошибка при получении списка валют: {e}")
             print(f"Ошибка: {e}")
 
+
+
     def do_refresh_rates(self, args):
-        """Принудительно обновить курсы валют: refresh-rates"""
+        """Принудительно обновить курсы валют: refresh_rates"""
         try:
             from ..core.exchange_service import ExchangeService
             exchange_service = ExchangeService()
@@ -980,11 +995,11 @@ class WalletCLI(cmd.Cmd):
         # При пустой строке ничего не делаем (не повторяем предыдущую команду)
         pass
 
-        """Сокращение для show-portfolio"""
+        """Сокращение для show_portfolio"""
         self.do_show_portfolio("")
 
     def do_br(self, args):
-        """Сокращение для get-rate"""
+        """Сокращение для get_rate"""
         self.do_get_rate(args)
 
     def do_curr(self, args):
@@ -992,42 +1007,41 @@ class WalletCLI(cmd.Cmd):
         self.do_currencies(args)
 
     def do_rr(self, args):
-        """Сокращение для refresh-rates"""
+        """Сокращение для refresh_rates"""
         self.do_refresh_rates(args)
 
 
-        """Сокращение для stop-parser"""
+        """Сокращение для stop_parser"""
         self.do_stop_parser(args)
 
 
-        """Сокращение для supported-pairs"""
+        """Сокращение для supported_pairs"""
         self.do_supported_pairs(args)
 
-    # Короткие команды для парсер-сервиса
     def do_ur(self, args):
-        """Сокращение для update-rates"""
+        """Сокращение для update_rates"""
         self.do_update_rates(args)
 
     def do_sr(self, args):
-        """Сокращение для show-rates"""
+        """Сокращение для show_rates"""
         self.do_show_rates(args)
 
     def do_ps(self, args):
-        """Сокращение для parser-status"""
+        """Сокращение для parser_status"""
         self.do_parser_status(args)
 
     def do_rh(self, args):
-        """Сокращение для rates-history"""
+        """Сокращение для rates_history"""
         self.do_rates_history(args)
 
     def do_sp(self, args):
-        """Сокращение для start-parser"""
+        """Сокращение для start_parser"""
         self.do_start_parser(args)
 
     def do_stp(self, args):
-        """Сокращение для stop-parser"""
+        """Сокращение для stop_parser"""
         self.do_stop_parser(args)
 
     def do_pairs(self, args):
-        """Сокращение для supported-pairs"""
+        """Сокращение для supported_pairs"""
         self.do_supported_pairs(args)

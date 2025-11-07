@@ -15,13 +15,13 @@ class ParserConfig:
     except ImportError:
         # Если settings недоступен, используем значения по умолчанию
         class DefaultSettings:
-            exchangerate_api_key = "your_exchangerate_api_key_here"
+            exchangerate_api_key = "935b702352e0c8d731dae5e3"
             coingecko_api_key = ""
         _settings = DefaultSettings()
 
     EXCHANGERATE_API_KEY: str = os.getenv(
         "EXCHANGERATE_API_KEY",
-        getattr(_settings, 'exchangerate_api_key', 'your_exchangerate_api_key_here')
+        getattr(_settings, 'exchangerate_api_key', '935b702352e0c8d731dae5e3')
     )
     COINGECKO_API_KEY: str = os.getenv(
         "COINGECKO_API_KEY",
@@ -65,7 +65,7 @@ class ParserConfig:
         """Проверяет корректность конфигурации"""
         issues = []
 
-        if cls.EXCHANGERATE_API_KEY == 'your_exchangerate_api_key_here':
+        if cls.EXCHANGERATE_API_KEY == '935b702352e0c8d731dae5e3':
             issues.append("ExchangeRate-API ключ не настроен")
 
         if not cls.FIAT_CURRENCIES:
