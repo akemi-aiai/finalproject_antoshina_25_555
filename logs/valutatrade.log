@@ -127,3 +127,266 @@
 2025-11-05 12:44:43 - valutatrade - INFO - Действие завершено: UPDATE_RATES
 2025-11-05 12:46:28 - valutatrade - INFO - Завершение сессии пользователя: test
 2025-11-05 12:46:28 - valutatrade - INFO - Завершение работы приложения
+2025-11-05 12:57:15 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-05 12:57:36,967", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-05 12:57:36 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-05 12:57:36,969", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-05 12:57:36 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-05 12:57:36,969", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-05 12:57:36 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-05 12:57:36,972", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.002}
+2025-11-05 12:57:36 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-05 12:57:36,973", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.004}
+2025-11-05 12:57:36 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-05 12:57:36,973", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-05 12:57:36 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-05 12:57:36,974", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-05 12:57:36 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-05 12:57:36,975", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.007}
+2025-11-05 12:57:36 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-05 12:57:44,643", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1}
+2025-11-05 12:57:44 - valutatrade - INFO - Начало действия: UPDATE_RATES
+{"timestamp": "2025-11-05 12:57:44,820", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES"}
+2025-11-05 12:57:44 - valutatrade - INFO - Начало действия: UPDATE_RATES
+2025-11-05 12:57:44 - valutatrade - INFO - 🚀 Запуск обновления курсов валют...
+2025-11-05 12:57:44 - valutatrade - INFO - 📡 Получение данных от coingecko...
+2025-11-05 12:57:44 - valutatrade - INFO - Получение курсов криптовалют от CoinGecko...
+2025-11-05 12:57:44 - valutatrade - ERROR - Неожиданная ошибка при работе с coingecko: type object 'ParserConfig' has no attribute 'CRYPTO_ID_MAP'
+2025-11-05 12:57:44 - valutatrade - INFO - 📡 Получение данных от exchangerate...
+2025-11-05 12:57:44 - valutatrade - INFO - Получение курсов фиатных валют от ExchangeRate-API...
+2025-11-05 12:57:46 - valutatrade - INFO - Успешно получено 0 фиатных курсов от ExchangeRate-API
+2025-11-05 12:57:46 - valutatrade - INFO - ✅ exchangerate: получено 0 курсов
+2025-11-05 12:57:46 - valutatrade - WARNING - ⚠️  Обновление завершено с ошибками. Успешных источников: 1, Ошибок: 1
+{"timestamp": "2025-11-05 12:57:46,388", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "result": "OK", "execution_time_sec": 1.568}
+2025-11-05 12:57:46 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-05 12:57:46 - valutatrade - ERROR - Ошибка при получении статуса парсера: 'last_update'
+{"timestamp": "2025-11-05 12:57:46,394", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 1.751}
+2025-11-05 12:57:46 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-05 13:18:36 - valutatrade - INFO - Завершение сессии пользователя: test
+2025-11-05 13:18:36 - valutatrade - INFO - Завершение работы приложения
+2025-11-07 10:01:15 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-07 10:02:51,469", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-07 10:02:51 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-07 10:02:51,469", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-07 10:02:51 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-07 10:02:51,470", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-07 10:02:51 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-07 10:02:51,474", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.004}
+2025-11-07 10:02:51 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-07 10:02:51,474", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.005}
+2025-11-07 10:02:51 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-07 10:02:51,475", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-07 10:02:51 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-07 10:02:51,476", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-07 10:02:51 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-07 10:02:51,476", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.007}
+2025-11-07 10:02:51 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-07 10:03:04,907", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1}
+2025-11-07 10:03:04 - valutatrade - INFO - Начало действия: UPDATE_RATES
+{"timestamp": "2025-11-07 10:03:05,095", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES"}
+2025-11-07 10:03:05 - valutatrade - INFO - Начало действия: UPDATE_RATES
+2025-11-07 10:03:05 - valutatrade - INFO - 🚀 Запуск обновления курсов валют...
+2025-11-07 10:03:05 - valutatrade - INFO - Получение данных от coingecko...
+2025-11-07 10:03:05 - valutatrade - INFO - Получение курсов криптовалют от CoinGecko...
+2025-11-07 10:03:05 - valutatrade - ERROR - Неожиданная ошибка при работе с coingecko: type object 'ParserConfig' has no attribute 'CRYPTO_ID_MAP'
+2025-11-07 10:03:05 - valutatrade - INFO - Получение данных от exchangerate...
+2025-11-07 10:03:05 - valutatrade - INFO - Получение курсов фиатных валют от ExchangeRate-API...
+2025-11-07 10:03:06 - valutatrade - INFO - Успешно получено 0 фиатных курсов от ExchangeRate-API
+2025-11-07 10:03:06 - valutatrade - INFO - exchangerate: получено 0 курсов
+2025-11-07 10:03:06 - valutatrade - WARNING - Обновление завершено с ошибками. Успешных источников: 1, Ошибок: 1
+{"timestamp": "2025-11-07 10:03:06,850", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "result": "OK", "execution_time_sec": 1.755}
+2025-11-07 10:03:06 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-07 10:03:06 - valutatrade - ERROR - Ошибка при получении статуса парсера: 'last_update'
+{"timestamp": "2025-11-07 10:03:06,854", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 1.947}
+2025-11-07 10:03:06 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-07 10:31:09 - valutatrade - INFO - Завершение сессии пользователя: test
+2025-11-07 10:31:09 - valutatrade - INFO - Завершение работы приложения
+2025-11-07 10:43:00 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-07 10:43:31,189", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-07 10:43:31 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-07 10:43:31,190", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-07 10:43:31 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-07 10:43:31,190", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-07 10:43:31 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-07 10:43:31,193", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.002}
+2025-11-07 10:43:31 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-07 10:43:31,193", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.003}
+2025-11-07 10:43:31 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-07 10:43:31,194", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-07 10:43:31 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-07 10:43:31,195", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-07 10:43:31 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-07 10:43:31,196", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.006}
+2025-11-07 10:43:31 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-07 10:43:44,203", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1}
+2025-11-07 10:43:44 - valutatrade - INFO - Начало действия: UPDATE_RATES
+{"timestamp": "2025-11-07 10:43:44,379", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES"}
+2025-11-07 10:43:44 - valutatrade - INFO - Начало действия: UPDATE_RATES
+2025-11-07 10:43:44 - valutatrade - INFO - 🚀 Запуск обновления курсов валют...
+2025-11-07 10:43:44 - valutatrade - INFO - Получение данных от coingecko...
+2025-11-07 10:43:44 - valutatrade - INFO - Получение курсов криптовалют от CoinGecko...
+2025-11-07 10:43:44 - valutatrade - ERROR - Неожиданная ошибка при работе с coingecko: type object 'ParserConfig' has no attribute 'CRYPTO_ID_MAP'
+2025-11-07 10:43:44 - valutatrade - INFO - Получение данных от exchangerate...
+2025-11-07 10:43:44 - valutatrade - INFO - Получение курсов фиатных валют от ExchangeRate-API...
+2025-11-07 10:43:46 - valutatrade - INFO - Успешно получено 0 фиатных курсов от ExchangeRate-API
+2025-11-07 10:43:46 - valutatrade - INFO - exchangerate: получено 0 курсов
+2025-11-07 10:43:46 - valutatrade - WARNING - Обновление завершено с ошибками. Успешных источников: 1, Ошибок: 1
+{"timestamp": "2025-11-07 10:43:46,143", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "result": "OK", "execution_time_sec": 1.763}
+2025-11-07 10:43:46 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-07 10:43:46 - valutatrade - ERROR - Ошибка при получении статуса парсера: 'last_update'
+{"timestamp": "2025-11-07 10:43:46,148", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 1.945}
+2025-11-07 10:43:46 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-07 10:45:07 - valutatrade - INFO - Завершение сессии пользователя: test
+2025-11-07 10:45:07 - valutatrade - INFO - Завершение работы приложения
+2025-11-07 10:55:38 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-07 10:55:53,816", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-07 10:55:53 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-07 10:55:53,817", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-07 10:55:53 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-07 10:55:53,818", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-07 10:55:53 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-07 10:55:53,820", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.001}
+2025-11-07 10:55:53 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-07 10:55:53,820", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.003}
+2025-11-07 10:55:53 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-07 10:55:53,821", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-07 10:55:53 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-07 10:55:53,822", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-07 10:55:53 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-07 10:55:53,822", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.005}
+2025-11-07 10:55:53 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-07 10:55:59,218", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1}
+2025-11-07 10:55:59 - valutatrade - INFO - Начало действия: UPDATE_RATES
+{"timestamp": "2025-11-07 10:55:59,396", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES"}
+2025-11-07 10:55:59 - valutatrade - INFO - Начало действия: UPDATE_RATES
+2025-11-07 10:55:59 - valutatrade - INFO - 🚀 Запуск обновления курсов валют...
+2025-11-07 10:55:59 - valutatrade - INFO - Получение данных от coingecko...
+2025-11-07 10:55:59 - valutatrade - INFO - Получение курсов криптовалют от CoinGecko...
+2025-11-07 10:56:00 - valutatrade - INFO - Получено 9 крипто курсов от CoinGecko
+2025-11-07 10:56:00 - valutatrade - INFO - coingecko: получено 9 курсов
+2025-11-07 10:56:00 - valutatrade - INFO - Получение данных от exchangerate...
+2025-11-07 10:56:00 - valutatrade - INFO - Получение курсов фиатных валют от ExchangeRate-API...
+2025-11-07 10:56:02 - valutatrade - WARNING - Ошибка запроса (попытка 1): 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 10:56:03 - valutatrade - WARNING - Ошибка запроса (попытка 2): 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 10:56:05 - valutatrade - WARNING - Ошибка запроса (попытка 3): 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 10:56:05 - valutatrade - ERROR - Ошибка получения фиатных курсов: Ошибка при обращении к внешнему API: Ошибка API: 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 10:56:05 - valutatrade - INFO - exchangerate: получено 0 курсов
+2025-11-07 10:56:05 - valutatrade - INFO - Обновлен кеш курсов: 9 пар
+2025-11-07 10:56:05 - valutatrade - INFO - Сохранено 9 курсов в кеш
+2025-11-07 10:56:05 - valutatrade - INFO - Обновление завершено успешно. Обработано источников: 2, Получено курсов: 9
+{"timestamp": "2025-11-07 10:56:05,956", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "result": "OK", "execution_time_sec": 6.56}
+2025-11-07 10:56:05 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-07 10:56:05 - valutatrade - ERROR - Ошибка при получении статуса парсера: 'last_update'
+{"timestamp": "2025-11-07 10:56:05,959", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 6.74}
+2025-11-07 10:56:05 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-07 11:12:47 - valutatrade - INFO - Завершение сессии пользователя: test
+2025-11-07 11:12:47 - valutatrade - INFO - Завершение работы приложения
+2025-11-07 11:13:03 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-07 11:13:19,721", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-07 11:13:19 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-07 11:13:19,722", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-07 11:13:19 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-07 11:13:19,723", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-07 11:13:19 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-07 11:13:19,725", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.002}
+2025-11-07 11:13:19 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-07 11:13:19,726", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.003}
+2025-11-07 11:13:19 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-07 11:13:19,726", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-07 11:13:19 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-07 11:13:19,728", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-07 11:13:19 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-07 11:13:19,728", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.006}
+2025-11-07 11:13:19 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-07 11:13:28,037", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1}
+2025-11-07 11:13:28 - valutatrade - INFO - Начало действия: UPDATE_RATES
+{"timestamp": "2025-11-07 11:13:28,210", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES"}
+2025-11-07 11:13:28 - valutatrade - INFO - Начало действия: UPDATE_RATES
+2025-11-07 11:13:28 - valutatrade - INFO - Запуск обновления курсов валют...
+2025-11-07 11:13:28 - valutatrade - INFO - Получение данных от coingecko...
+2025-11-07 11:13:28 - valutatrade - INFO - Получение курсов криптовалют от CoinGecko...
+2025-11-07 11:13:29 - valutatrade - INFO - Получено 9 крипто курсов от CoinGecko
+2025-11-07 11:13:29 - valutatrade - INFO - coingecko: получено 9 курсов
+2025-11-07 11:13:29 - valutatrade - INFO - Получение данных от exchangerate...
+2025-11-07 11:13:29 - valutatrade - INFO - Получение курсов фиатных валют от ExchangeRate-API...
+2025-11-07 11:13:31 - valutatrade - WARNING - Ошибка запроса (попытка 1): 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 11:13:32 - valutatrade - WARNING - Ошибка запроса (попытка 2): 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 11:13:34 - valutatrade - WARNING - Ошибка запроса (попытка 3): 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 11:13:34 - valutatrade - ERROR - Ошибка получения фиатных курсов: Ошибка при обращении к внешнему API: Ошибка API: 404 Client Error: Not Found for url: https://v6.exchangerate-api.com/v6/your_exchangerate_api_key_here/latest/USD
+2025-11-07 11:13:34 - valutatrade - INFO - exchangerate: получено 0 курсов
+2025-11-07 11:13:34 - valutatrade - INFO - Обновлен кеш курсов: 9 пар
+2025-11-07 11:13:34 - valutatrade - INFO - Сохранено 9 курсов в кеш
+2025-11-07 11:13:34 - valutatrade - INFO - Обновление завершено успешно. Обработано источников: 2, Получено курсов: 9
+{"timestamp": "2025-11-07 11:13:34,755", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "result": "OK", "execution_time_sec": 6.544}
+2025-11-07 11:13:34 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-07 11:13:34 - valutatrade - ERROR - Ошибка при получении статуса парсера: 'last_update'
+{"timestamp": "2025-11-07 11:13:34,758", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 6.72}
+2025-11-07 11:13:34 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+{"timestamp": "2025-11-07 11:17:01,591", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_RATE", "action": "GET_RATE", "user": "test", "user_id": 1}
+2025-11-07 11:17:01 - valutatrade - INFO - Начало действия: GET_RATE
+{"timestamp": "2025-11-07 11:17:01,592", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение информации о курсе", "action": "Получение информации о курсе"}
+2025-11-07 11:17:01 - valutatrade - INFO - Начало действия: Получение информации о курсе
+{"timestamp": "2025-11-07 11:17:01,592", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса обмена", "action": "Получение курса обмена"}
+2025-11-07 11:17:01 - valutatrade - INFO - Начало действия: Получение курса обмена
+2025-11-07 11:17:01 - valutatrade - INFO - Запрос нового курса: BTC_USD
+2025-11-07 11:17:01 - valutatrade - INFO - Курс обновлен: BTC_USD = 59337.21
+{"timestamp": "2025-11-07 11:17:01,593", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса обмена", "action": "Получение курса обмена", "result": "OK", "execution_time_sec": 0.001}
+2025-11-07 11:17:01 - valutatrade - INFO - Действие завершено: Получение курса обмена
+{"timestamp": "2025-11-07 11:17:01,594", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение информации о курсе", "action": "Получение информации о курсе", "result": "OK", "execution_time_sec": 0.002}
+2025-11-07 11:17:01 - valutatrade - INFO - Действие завершено: Получение информации о курсе
+{"timestamp": "2025-11-07 11:17:01,594", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_RATE", "action": "GET_RATE", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.002}
+2025-11-07 11:17:01 - valutatrade - INFO - Действие завершено: GET_RATE
+{"timestamp": "2025-11-07 11:17:25,497", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: BUY", "action": "BUY", "user": "test", "user_id": 1}
+2025-11-07 11:17:25 - valutatrade - INFO - Начало действия: BUY
+{"timestamp": "2025-11-07 11:17:25,497", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: BUY", "action": "BUY", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.0}
+2025-11-07 11:17:25 - valutatrade - INFO - Действие завершено: BUY
+{"timestamp": "2025-11-07 11:17:56,965", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: BUY", "action": "BUY", "user": "test", "user_id": 1}
+2025-11-07 11:17:56 - valutatrade - INFO - Начало действия: BUY
+{"timestamp": "2025-11-07 11:17:56,965", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: BUY", "action": "BUY", "currency": "EUR", "amount": 150.0}
+2025-11-07 11:17:56 - valutatrade - INFO - Начало действия: BUY
+{"timestamp": "2025-11-07 11:17:56,966", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-07 11:17:56 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-07 11:17:56,966", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.0}
+2025-11-07 11:17:56 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-07 11:17:56,966", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Добавление валюты в портфель", "action": "Добавление валюты в портфель"}
+2025-11-07 11:17:56 - valutatrade - INFO - Начало действия: Добавление валюты в портфель
+{"timestamp": "2025-11-07 11:17:56,966", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Добавление валюты в портфель", "action": "Добавление валюты в портфель", "result": "OK", "execution_time_sec": 0.0}
+2025-11-07 11:17:56 - valutatrade - INFO - Действие завершено: Добавление валюты в портфель
+2025-11-07 11:17:56 - valutatrade - INFO - Начало транзакции: deposit
+2025-11-07 11:17:56 - valutatrade - INFO - Транзакция успешна: deposit
+{"timestamp": "2025-11-07 11:17:56,967", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса обмена", "action": "Получение курса обмена"}
+2025-11-07 11:17:56 - valutatrade - INFO - Начало действия: Получение курса обмена
+2025-11-07 11:17:56 - valutatrade - INFO - Запрос нового курса: EUR_USD
+2025-11-07 11:17:56 - valutatrade - INFO - Курс обновлен: EUR_USD = 1.0786
+{"timestamp": "2025-11-07 11:17:56,969", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса обмена", "action": "Получение курса обмена", "result": "OK", "execution_time_sec": 0.001}
+2025-11-07 11:17:56 - valutatrade - INFO - Действие завершено: Получение курса обмена
+2025-11-07 11:17:56 - valutatrade - INFO - Покупка валюты: пользователь 1, 150.0 EUR по курсу 1.0786
+{"timestamp": "2025-11-07 11:17:56,971", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: BUY", "action": "BUY", "currency": "EUR", "amount": 150.0, "rate": 1.0786, "result": "OK", "execution_time_sec": 0.005}
+2025-11-07 11:17:56 - valutatrade - INFO - Действие завершено: BUY
+{"timestamp": "2025-11-07 11:17:56,971", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: BUY", "action": "BUY", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.006}
+2025-11-07 11:17:56 - valutatrade - INFO - Действие завершено: BUY
+{"timestamp": "2025-11-07 11:18:18,873", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: SELL", "action": "SELL", "user": "test", "user_id": 1}
+2025-11-07 11:18:18 - valutatrade - INFO - Начало действия: SELL
+{"timestamp": "2025-11-07 11:18:18,874", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: SELL", "action": "SELL", "currency": "USD", "amount": 50.0}
+2025-11-07 11:18:18 - valutatrade - INFO - Начало действия: SELL
+{"timestamp": "2025-11-07 11:18:18,874", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-07 11:18:18 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-07 11:18:18,875", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.0}
+2025-11-07 11:18:18 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+2025-11-07 11:18:18 - valutatrade - INFO - Начало транзакции: withdraw
+2025-11-07 11:18:18 - valutatrade - INFO - Транзакция успешна: withdraw
+{"timestamp": "2025-11-07 11:18:18,875", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса обмена", "action": "Получение курса обмена"}
+2025-11-07 11:18:18 - valutatrade - INFO - Начало действия: Получение курса обмена
+{"timestamp": "2025-11-07 11:18:18,876", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса обмена", "action": "Получение курса обмена", "result": "OK", "execution_time_sec": 0.0}
+2025-11-07 11:18:18 - valutatrade - INFO - Действие завершено: Получение курса обмена
+2025-11-07 11:18:18 - valutatrade - INFO - Продажа валюты: пользователь 1, 50.0 USD по курсу 1.0
+{"timestamp": "2025-11-07 11:18:18,877", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: SELL", "action": "SELL", "currency": "USD", "amount": 50.0, "rate": 1.0, "result": "OK", "execution_time_sec": 0.003}
+2025-11-07 11:18:18 - valutatrade - INFO - Действие завершено: SELL
+{"timestamp": "2025-11-07 11:18:18,878", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: SELL", "action": "SELL", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.004}
+2025-11-07 11:18:18 - valutatrade - INFO - Действие завершено: SELL
+{"timestamp": "2025-11-07 11:18:28,581", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Просмотр портфеля", "action": "Просмотр портфеля", "user": "test", "user_id": 1}
+2025-11-07 11:18:28 - valutatrade - INFO - Начало действия: Просмотр портфеля
+{"timestamp": "2025-11-07 11:18:28,583", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Просмотр портфеля", "action": "Просмотр портфеля", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.002}
+2025-11-07 11:18:28 - valutatrade - INFO - Действие завершено: Просмотр портфеля
+2025-11-07 11:20:28 - valutatrade - INFO - Завершение сессии пользователя: test
+2025-11-07 11:20:28 - valutatrade - INFO - Завершение работы приложения

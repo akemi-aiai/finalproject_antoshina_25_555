@@ -349,7 +349,7 @@ class WalletCLI(cmd.Cmd):
 
             if not rates:
                 print("Локальный кеш курсов пуст.")
-                print("Выполните 'update-rates', чтобы загрузить данные")
+                print("Выполните 'update_rates', чтобы загрузить данные")
                 return
 
             # Фильтруем и сортируем курсы
@@ -537,12 +537,12 @@ class WalletCLI(cmd.Cmd):
                 print("Обновление завершено с ошибками")
 
             # Статус по источникам
-            print("\nОбработанные источники:")
             for source_info in results["sources_processed"]:
-                status_icon = "✅" if source_info["status"] == "success" else "❌"
+                status_icon = "OK" if source_info["status"] == "success" else "FAIL"
                 print(f"   {status_icon} {source_info['source']}: {source_info['rates_count']} курсов")
                 if source_info["status"] == "error":
                     print(f"      Ошибка: {source_info['error']}")
+
 
             # Общая статистика
             print("\nОбщая статистика:")
@@ -557,7 +557,7 @@ class WalletCLI(cmd.Cmd):
 
             # Совет по исправлению ошибок
             if not results["success"]:
-                print("\n💡 Советы по устранению ошибок:")
+                print("\nСоветы по устранению ошибок:")
                 print("   - Проверьте подключение к интернету")
                 print("   - Убедитесь, что API ключи настроены правильно")
                 print("   - Проверьте лимиты запросов к API")
@@ -585,11 +585,13 @@ class WalletCLI(cmd.Cmd):
             print("-" * 40)
 
             # Статус планировщика
+
             print("Планировщик:")
-            status_icon = "🟢" if scheduler_status["is_running"] else "🔴"
+            status_icon = "✔" if scheduler_status["is_running"] else "✖"
             print(f"{status_icon} Статус: {'Запущен' if scheduler_status['is_running'] else 'Остановлен'}")
             print(f"Интервал: {scheduler_status['update_interval_minutes']} мин")
             print(f"Поток: {'Активен' if scheduler_status['thread_alive'] else 'Неактивен'}")
+
 
             # Статус последнего обновления
             print("\nПоследнее обновление:")
@@ -611,10 +613,13 @@ class WalletCLI(cmd.Cmd):
             print("\nКонфигурация:")
             from ..parser_service.config import ParserConfig
             config_ok = ParserConfig.validate_config()
-            config_icon = "🟢" if config_ok else "🟡"
-            print(f"{config_icon} API ключи: {'Настроены' if config_ok else 'Требуют настройки'}")
+            config_icon = "✔" if config_ok else "⚠"
+            status_text = "Настроены" if config_ok else "Требуют настройки"
+            print(f"{config_icon} API ключи: {status_text}")
             print(f"Фиатные валюты: {len(ParserConfig.SUPPORTED_FIAT_CURRENCIES)}")
             print(f"Криптовалюты: {len(ParserConfig.SUPPORTED_CRYPTO_CURRENCIES)}")
+
+
 
         except Exception as e:
             logger.error(f"Ошибка при получении статуса парсера: {e}")
@@ -636,7 +641,7 @@ class WalletCLI(cmd.Cmd):
             config_valid = config.validate_config()
 
             print("Статус Parser Service:")
-            print("=" * 50)
+            print("-" * 40)
 
             # Статус конфигурации
             print("\nКонфигурация:")
@@ -648,18 +653,23 @@ class WalletCLI(cmd.Cmd):
 
             # Статус планировщика
             print("\nПланировщик:")
-            status_icon = "🟢" if scheduler_status["is_running"] else "🔴"
-            print(f"   {status_icon} Статус: {'Запущен' if scheduler_status['is_running'] else 'Остановлен'}")
-            print(f"   ⏱Интервал: {scheduler_status['update_interval_minutes']} мин")
-            print(f"   Поток: {'Активен' if scheduler_status['thread_alive'] else 'Неактивен'}")
+            status_icon = "✔" if scheduler_status["is_running"] else "✖"
+            status_text = "Запущен" if scheduler_status["is_running"] else "Остановлен"
+            print(f"   {status_icon} Статус: {status_text}")
+            print(f"   Интервал: {scheduler_status['update_interval_minutes']} мин")
+            thread_status = "Активен" if scheduler_status["thread_alive"] else "Неактивен"
+            print(f"   Поток: {thread_status}")
+
 
             # Статус данных
             print("\nДанные:")
             cache_status = update_status["cache"]
             history_status = update_status["history"]
 
-            cache_icon = "🟢" if cache_status["is_fresh"] else "🟡"
-            print(f"   {cache_icon} Кеш: {cache_status['total_pairs']} пар ({'актуален' if cache_status['is_fresh'] else 'устарел'})")
+            cache_icon = "✔" if cache_status["is_fresh"] else "!"
+            status_text = "актуален" if cache_status["is_fresh"] else "устарел"
+            print(f"   {cache_icon} Кеш: {cache_status['total_pairs']} пар ({status_text})")
+
 
             if cache_status["last_refresh"]:
                 try:
@@ -727,7 +737,7 @@ class WalletCLI(cmd.Cmd):
 
 
             # Форматируем изменение
-            change_icon = "🟢" if change > 0 else "🔴" if change < 0 else "⚪"
+            change_icon = "+" if change > 0 else "-" if change < 0 else "0"
             change_str = f"{change_icon} {change:+.2f}%"
 
             # Форматируем курс
@@ -788,7 +798,7 @@ class WalletCLI(cmd.Cmd):
         try:
             from ..parser_service.config import config
 
-            print("💱 Поддерживаемые валютные пары:")
+            print("Поддерживаемые валютные пары:")
             print("=" * 50)
 
             print("\nФиатные валюты (к USD):")
@@ -798,7 +808,7 @@ class WalletCLI(cmd.Cmd):
 
             print(f"\nВсего фиатных пар: {len(fiat_pairs)}")
 
-            print("\n₿ Криптовалюты (к USD и обратно):")
+            print("\nКриптовалюты (к USD и обратно):")
             crypto_pairs = []
             for crypto in config.CRYPTO_CURRENCIES:
                 crypto_pairs.append(f"{crypto}_USD")
@@ -863,17 +873,17 @@ class WalletCLI(cmd.Cmd):
         try:
             from ..parser_service.config import config
 
-            print("💱 Поддерживаемые валютные пары:")
+            print("Поддерживаемые валютные пары:")
             print("=" * 50)
 
-            print("\n💵 Фиатные валюты (к USD):")
+            print("\nФиатные валюты (к USD):")
             fiat_pairs = [f"{curr}_USD" for curr in config.FIAT_CURRENCIES if curr != "USD"]
             for i, pair in enumerate(sorted(fiat_pairs), 1):
                 print(f"   {i:2d}. {pair}")
 
             print(f"\nВсего фиатных пар: {len(fiat_pairs)}")
 
-            print("\n₿ Криптовалюты (к USD и обратно):")
+            print("\nКриптовалюты (к USD и обратно):")
             crypto_pairs = []
             for crypto in config.CRYPTO_CURRENCIES:
                 crypto_pairs.append(f"{crypto}_USD")

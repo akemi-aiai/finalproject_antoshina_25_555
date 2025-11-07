@@ -1,25 +1,31 @@
 """
-Конфигурация для Parser Service с использованием dataclass
+Конфигурация для Parser Service
 """
 import os
-from dataclasses import dataclass, field
 from typing import Dict, Tuple
 
-from ..infra.settings import settings
 
-
-@dataclass
 class ParserConfig:
-    """Конфигурация парсер-сервиса с использованием dataclass"""
+    """Конфигурация парсер-сервиса"""
 
     # API ключи (сначала из переменных окружения, если нет — из settings)
+    try:
+        from ..infra.settings import settings
+        _settings = settings
+    except ImportError:
+        # Если settings недоступен, используем значения по умолчанию
+        class DefaultSettings:
+            exchangerate_api_key = "your_exchangerate_api_key_here"
+            coingecko_api_key = ""
+        _settings = DefaultSettings()
+
     EXCHANGERATE_API_KEY: str = os.getenv(
         "EXCHANGERATE_API_KEY",
-        getattr(settings, "exchangerate_api_key", "your_exchangerate_api_key_here")
+        getattr(_settings, 'exchangerate_api_key', 'your_exchangerate_api_key_here')
     )
     COINGECKO_API_KEY: str = os.getenv(
         "COINGECKO_API_KEY",
-        getattr(settings, "coingecko_api_key", "")
+        getattr(_settings, 'coingecko_api_key', '')
     )
 
     # Эндпоинты
@@ -32,7 +38,7 @@ class ParserConfig:
     CRYPTO_CURRENCIES: Tuple[str, ...] = ("BTC", "ETH", "SOL", "ADA", "DOT", "DOGE", "LTC", "XRP", "BNB", "MATIC")
 
     # Словарь соответствий для CoinGecko
-    CRYPTO_ID_MAP: Dict[str, str] = field(default_factory=lambda: {
+    CRYPTO_ID_MAP: Dict[str, str] = {
         "BTC": "bitcoin",
         "ETH": "ethereum",
         "SOL": "solana",
@@ -43,11 +49,11 @@ class ParserConfig:
         "XRP": "ripple",
         "BNB": "binancecoin",
         "MATIC": "matic-network"
-    })
+    }
 
     # Пути к файлам
-    RATES_FILE_PATH: str = "data/rates.json"  # Текущий кеш
-    HISTORY_FILE_PATH: str = "data/exchange_rates.json"  # Исторические данные
+    RATES_FILE_PATH: str = "data/rates.json"
+    HISTORY_FILE_PATH: str = "data/exchange_rates.json"
 
     # Сетевые параметры
     REQUEST_TIMEOUT: int = 10
@@ -69,7 +75,7 @@ class ParserConfig:
             issues.append("Нет поддерживаемых криптовалют")
 
         if issues:
-            print(f"⚠️  Проблемы конфигурации: {', '.join(issues)}")
+            print(f"Проблемы конфигурации: {', '.join(issues)}")
             return False
 
         return True
@@ -86,18 +92,6 @@ class ParserConfig:
         return {
             'ids': crypto_ids,
             'vs_currencies': 'usd'
-        }
-
-    @classmethod
-    def get_config_info(cls) -> Dict[str, any]:
-        """Возвращает информацию о конфигурации"""
-        return {
-            "exchangerate_api_configured": cls.EXCHANGERATE_API_KEY != 'your_exchangerate_api_key_here',
-            "coingecko_api_configured": bool(cls.COINGECKO_API_KEY),
-            "supported_fiat_currencies": len(cls.FIAT_CURRENCIES),
-            "supported_crypto_currencies": len(cls.CRYPTO_CURRENCIES),
-            "update_interval_minutes": cls.UPDATE_INTERVAL_MINUTES,
-            "total_currency_pairs": len(cls.FIAT_CURRENCIES) + len(cls.CRYPTO_CURRENCIES) * 2
         }
 
 

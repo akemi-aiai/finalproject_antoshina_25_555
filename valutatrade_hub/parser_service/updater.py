@@ -34,7 +34,7 @@ class RatesUpdater:
         Returns:
             Словарь с результатами обновления
         """
-        logger.info("🚀 Запуск обновления курсов валют...")
+        logger.info("Запуск обновления курсов валют...")
 
         if sources is None:
             sources = list(self.clients.keys())
@@ -59,7 +59,7 @@ class RatesUpdater:
                 continue
 
             try:
-                logger.info(f"📡 Получение данных от {source}...")
+                logger.info(f"Получение данных от {source}...")
 
                 # Получаем курсы от API
                 rates = self.clients[source].fetch_rates()
@@ -81,7 +81,7 @@ class RatesUpdater:
                     "status": "success"
                 })
 
-                logger.info(f"✅ {source}: получено {len(rates)} курсов")
+                logger.info(f"{source}: получено {len(rates)} курсов")
 
             except ApiRequestError as e:
                 error_msg = f"Ошибка получения данных от {source}: {e}"
@@ -116,7 +116,7 @@ class RatesUpdater:
                 # Обновляем кеш
                 self.storage.update_cache(all_rates)
 
-                logger.info(f"💾 Сохранено {len(all_rates)} курсов в кеш")
+                logger.info(f"Сохранено {len(all_rates)} курсов в кеш")
 
             except Exception as e:
                 error_msg = f"Ошибка сохранения данных: {e}"
@@ -126,11 +126,11 @@ class RatesUpdater:
 
         # Формируем итоговое сообщение
         if results["success"]:
-            logger.info(f"✅ Обновление завершено успешно. "
+            logger.info(f"Обновление завершено успешно. "
                        f"Обработано источников: {len(results['sources_processed'])}, "
                        f"Получено курсов: {results['rates_fetched']}")
         else:
-            logger.warning(f"⚠️  Обновление завершено с ошибками. "
+            logger.warning(f"Обновление завершено с ошибками. "
                           f"Успешных источников: {len([s for s in results['sources_processed'] if s['status'] == 'success'])}, "
                           f"Ошибок: {len(results['errors'])}")
 
@@ -170,25 +170,30 @@ class RatesUpdater:
 
     def get_update_status(self) -> Dict[str, Any]:
         """
-        Возвращает статус последнего обновления
+        Возвращает статус последнего обновления """
 
-        Returns:
-            Словарь со статусом
-        """
-        cache_data = self.storage.load_cache()
-        history_data = self.storage.load_historical_data()
+        try:
+            cache_data = self.storage.load_cache()
+            history_data = self.storage.load_historical_data()
 
-        return {
-            "cache": {
-                "last_refresh": cache_data.get("last_refresh"),
-                "total_pairs": len(cache_data.get("pairs", {})),
-                "is_fresh": self.storage.is_cache_fresh()
-            },
-            "history": {
-                "total_records": len(history_data.get("history", {})),
-                "last_update": history_data.get("metadata", {}).get("last_update")
+            return {
+                "cache": {
+                    "last_refresh": cache_data.get("last_refresh"),
+                    "total_pairs": len(cache_data.get("pairs", {})),
+                    "is_fresh": self.storage.is_cache_fresh()
+                },
+                "history": {
+                    "total_records": len(history_data.get("history", {})),
+                    "last_update": history_data.get("metadata", {}).get("last_update")
+                }
             }
-        }
+
+        except Exception as e:
+            logger.error(f"Ошибка получения статуса: {e}")
+            return {
+                "cache": {"last_refresh": None, "total_pairs": 0, "is_fresh": False},
+                "history": {"total_records": 0, "last_update": None}
+            }
 
 
 # Глобальный экземпляр обновлятеля

@@ -133,7 +133,7 @@ def log_transaction(currency: str = None, amount: float = None):
                 return result
 
             except Exception as e:
-                logger.error(f"Транзакция失败: {func.__name__}{transaction_info} - {str(e)}")
+                logger.error(f"Транзакция: {func.__name__}{transaction_info} - {str(e)}")
                 raise
 
         return wrapper
