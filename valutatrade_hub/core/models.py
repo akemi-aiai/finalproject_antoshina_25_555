@@ -62,8 +62,6 @@ class User:
         }
 
     @log_action("Смена пароля")
-    def change_password(self, new_password: str):
-        self._hashed_password = self._hash_password(new_password, self._salt)
 
     def verify_password(self, password: str) -> bool:
         return self._hashed_password == self._hash_password(password, self._salt)
@@ -121,12 +119,6 @@ class Wallet:
         if value < 0:
             raise ValidationError("Баланс не может быть отрицательным")
         self._balance = float(value)
-
-    @log_transaction()
-    def deposit(self, amount: float):
-        if amount <= 0:
-            raise ValidationError("Сумма пополнения должна быть положительной")
-        self.balance += amount
 
     @log_transaction()
     def withdraw(self, amount: float):

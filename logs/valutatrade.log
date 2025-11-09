@@ -1154,3 +1154,338 @@
 2025-11-07 16:56:02 - valutatrade - INFO - Действие завершено: GET_RATE
 2025-11-07 16:56:06 - valutatrade - INFO - Завершение сессии пользователя: test
 2025-11-07 16:56:06 - valutatrade - INFO - Завершение работы приложения
+2025-11-09 17:10:31 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-09 17:10:54,183", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:10:54 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:10:54,184", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:10:54 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:10:54,184", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:10:54 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:10:54,187", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.002}
+2025-11-09 17:10:54 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:10:54,188", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.004}
+2025-11-09 17:10:54 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:10:54,188", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:10:54 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:10:54,190", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:10:54 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:10:54,190", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.007}
+2025-11-09 17:10:54 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-09 17:11:28,814", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Просмотр портфеля", "action": "Просмотр портфеля", "user": "test", "user_id": 1}
+2025-11-09 17:11:28 - valutatrade - INFO - Начало действия: Просмотр портфеля
+{"timestamp": "2025-11-09 17:11:28,815", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:11:28 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:11:28,815", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:11:28 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:11:28,816", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса обмена", "action": "Получение курса обмена"}
+2025-11-09 17:11:28 - valutatrade - INFO - Начало действия: Получение курса обмена
+2025-11-09 17:11:28 - valutatrade - WARNING - Курс EUR_USD устарел (TTL: 300 сек)
+2025-11-09 17:11:28 - valutatrade - INFO - Запрос нового курса (TTL истек): EUR_USD
+2025-11-09 17:11:28 - valutatrade - INFO - Курс обновлен: EUR_USD = 1.0786
+{"timestamp": "2025-11-09 17:11:28,821", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса обмена", "action": "Получение курса обмена", "result": "OK", "execution_time_sec": 0.005}
+2025-11-09 17:11:28 - valutatrade - INFO - Действие завершено: Получение курса обмена
+{"timestamp": "2025-11-09 17:11:28,835", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Просмотр портфеля", "action": "Просмотр портфеля", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.02}
+2025-11-09 17:11:28 - valutatrade - INFO - Действие завершено: Просмотр портфеля
+{"timestamp": "2025-11-09 17:11:53,268", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: История курсов", "action": "История курсов", "user": "test", "user_id": 1}
+2025-11-09 17:11:53 - valutatrade - INFO - Начало действия: История курсов
+{"timestamp": "2025-11-09 17:11:53,269", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: История курсов", "action": "История курсов", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:11:53 - valutatrade - INFO - Действие завершено: История курсов
+{"timestamp": "2025-11-09 17:12:10,173", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса валют", "action": "Получение курса валют", "user": "test", "user_id": 1}
+2025-11-09 17:12:10 - valutatrade - INFO - Начало действия: Получение курса валют
+{"timestamp": "2025-11-09 17:12:10,174", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса валют", "action": "Получение курса валют", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:12:10 - valutatrade - INFO - Действие завершено: Получение курса валют
+{"timestamp": "2025-11-09 17:12:39,658", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Регистрация пользователя", "action": "Регистрация пользователя", "user": "test", "user_id": 1}
+2025-11-09 17:12:39 - valutatrade - INFO - Начало действия: Регистрация пользователя
+{"timestamp": "2025-11-09 17:12:39,659", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Регистрация пользователя", "action": "Регистрация пользователя", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:12:39 - valutatrade - INFO - Действие завершено: Регистрация пользователя
+{"timestamp": "2025-11-09 17:13:01,559", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Регистрация пользователя", "action": "Регистрация пользователя", "user": "test", "user_id": 1}
+2025-11-09 17:13:01 - valutatrade - INFO - Начало действия: Регистрация пользователя
+{"timestamp": "2025-11-09 17:13:01,559", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: REGISTER", "action": "REGISTER"}
+2025-11-09 17:13:01 - valutatrade - INFO - Начало действия: REGISTER
+{"timestamp": "2025-11-09 17:13:01,560", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: CHECK_USERNAME", "action": "CHECK_USERNAME"}
+2025-11-09 17:13:01 - valutatrade - INFO - Начало действия: CHECK_USERNAME
+{"timestamp": "2025-11-09 17:13:01,560", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: CHECK_USERNAME", "action": "CHECK_USERNAME", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:13:01 - valutatrade - INFO - Действие завершено: CHECK_USERNAME
+{"timestamp": "2025-11-09 17:13:01,564", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: REGISTER", "action": "REGISTER", "result": "OK", "execution_time_sec": 0.005}
+2025-11-09 17:13:01 - valutatrade - INFO - Действие завершено: REGISTER
+{"timestamp": "2025-11-09 17:13:01,565", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Регистрация пользователя", "action": "Регистрация пользователя", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.006}
+2025-11-09 17:13:01 - valutatrade - INFO - Действие завершено: Регистрация пользователя
+{"timestamp": "2025-11-09 17:13:18,884", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему", "user": "test", "user_id": 1}
+2025-11-09 17:13:18 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:13:18,885", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:13:18 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-09 17:13:56,189", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему", "user": "test", "user_id": 1}
+2025-11-09 17:13:56 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:13:56,190", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "user": "test", "user_id": 1, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:13:56 - valutatrade - INFO - Действие завершено: Вход в систему
+2025-11-09 17:14:36 - valutatrade - INFO - Выход пользователя: test
+{"timestamp": "2025-11-09 17:14:49,310", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:14:49 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:14:49,311", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:14:49 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-09 17:15:17,231", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:15:17 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:15:17,232", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:15:17 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:15:17,233", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:15:17 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:15:17,233", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:15:17 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:15:17,234", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:15:17 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:15:17,234", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:15:17 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:15:17,235", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:15:17 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:15:17,235", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.003}
+2025-11-09 17:15:17 - valutatrade - INFO - Действие завершено: Вход в систему
+2025-11-09 17:15:31 - valutatrade - INFO - Выход пользователя: test
+{"timestamp": "2025-11-09 17:15:46,407", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:15:46 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:15:46,408", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:15:46 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:15:46,409", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:15:46 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:15:46,409", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:15:46 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:15:46,410", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:15:46 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:15:46,410", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:15:46 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:15:46,411", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:15:46 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:15:46,411", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: CREATE_PORTFOLIO", "action": "CREATE_PORTFOLIO"}
+2025-11-09 17:15:46 - valutatrade - INFO - Начало действия: CREATE_PORTFOLIO
+{"timestamp": "2025-11-09 17:15:46,415", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: CREATE_PORTFOLIO", "action": "CREATE_PORTFOLIO", "result": "OK", "execution_time_sec": 0.003}
+2025-11-09 17:15:46 - valutatrade - INFO - Действие завершено: CREATE_PORTFOLIO
+{"timestamp": "2025-11-09 17:15:46,415", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.007}
+2025-11-09 17:15:46 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-09 17:15:54,899", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Покупка валюты", "action": "Покупка валюты", "user": "lemon", "user_id": 3}
+2025-11-09 17:15:54 - valutatrade - INFO - Начало действия: Покупка валюты
+{"timestamp": "2025-11-09 17:15:54,900", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Покупка валюты", "action": "Покупка валюты", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:15:54 - valutatrade - INFO - Действие завершено: Покупка валюты
+{"timestamp": "2025-11-09 17:16:16,747", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Покупка валюты", "action": "Покупка валюты", "user": "lemon", "user_id": 3}
+2025-11-09 17:16:16 - valutatrade - INFO - Начало действия: Покупка валюты
+2025-11-09 17:16:16 - valutatrade - ERROR - buy: 'PortfolioManager' object has no attribute 'buy'
+{"timestamp": "2025-11-09 17:16:16,748", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Покупка валюты", "action": "Покупка валюты", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:16:16 - valutatrade - INFO - Действие завершено: Покупка валюты
+{"timestamp": "2025-11-09 17:17:21,113", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Покупка валюты", "action": "Покупка валюты", "user": "lemon", "user_id": 3}
+2025-11-09 17:17:21 - valutatrade - INFO - Начало действия: Покупка валюты
+2025-11-09 17:17:21 - valutatrade - ERROR - buy: 'PortfolioManager' object has no attribute 'buy'
+{"timestamp": "2025-11-09 17:17:21,115", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Покупка валюты", "action": "Покупка валюты", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:17:21 - valutatrade - INFO - Действие завершено: Покупка валюты
+{"timestamp": "2025-11-09 17:21:06,221", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса валют", "action": "Получение курса валют", "user": "lemon", "user_id": 3}
+2025-11-09 17:21:06 - valutatrade - INFO - Начало действия: Получение курса валют
+{"timestamp": "2025-11-09 17:21:06,224", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса валют", "action": "Получение курса валют", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:21:06 - valutatrade - INFO - Действие завершено: Получение курса валют
+2025-11-09 17:21:28 - valutatrade - INFO - Завершение сессии пользователя: lemon
+2025-11-09 17:21:28 - valutatrade - INFO - Завершение работы приложения
+2025-11-09 17:21:55 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-09 17:22:14,458", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:22:14 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:22:14,459", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:22:14 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:22:14,459", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:22:14 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:22:14,462", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.002}
+2025-11-09 17:22:14 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:22:14,462", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.003}
+2025-11-09 17:22:14 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:22:14,463", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:22:14 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:22:14,464", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:22:14 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:22:14,464", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.006}
+2025-11-09 17:22:14 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-09 17:22:22,536", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_RATE", "action": "GET_RATE", "user": "lemon", "user_id": 3}
+2025-11-09 17:22:22 - valutatrade - INFO - Начало действия: GET_RATE
+{"timestamp": "2025-11-09 17:22:22,537", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_RATE", "action": "GET_RATE", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:22:22 - valutatrade - INFO - Действие завершено: GET_RATE
+{"timestamp": "2025-11-09 17:22:56,911", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_RATE", "action": "GET_RATE", "user": "lemon", "user_id": 3}
+2025-11-09 17:22:56 - valutatrade - INFO - Начало действия: GET_RATE
+{"timestamp": "2025-11-09 17:22:56,911", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение информации о курсе", "action": "Получение информации о курсе"}
+2025-11-09 17:22:56 - valutatrade - INFO - Начало действия: Получение информации о курсе
+{"timestamp": "2025-11-09 17:22:56,912", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса обмена", "action": "Получение курса обмена"}
+2025-11-09 17:22:56 - valutatrade - INFO - Начало действия: Получение курса обмена
+2025-11-09 17:22:56 - valutatrade - INFO - Запрос нового курса (TTL истек): USD_EUR
+2025-11-09 17:22:56 - valutatrade - INFO - Курс обновлен: USD_EUR = 0.927
+{"timestamp": "2025-11-09 17:22:56,916", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса обмена", "action": "Получение курса обмена", "result": "OK", "execution_time_sec": 0.004}
+2025-11-09 17:22:56 - valutatrade - INFO - Действие завершено: Получение курса обмена
+{"timestamp": "2025-11-09 17:22:56,917", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение информации о курсе", "action": "Получение информации о курсе", "result": "OK", "execution_time_sec": 0.005}
+2025-11-09 17:22:56 - valutatrade - INFO - Действие завершено: Получение информации о курсе
+{"timestamp": "2025-11-09 17:22:56,917", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_RATE", "action": "GET_RATE", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.006}
+2025-11-09 17:22:56 - valutatrade - INFO - Действие завершено: GET_RATE
+2025-11-09 17:23:02 - valutatrade - INFO - Завершение сессии пользователя: lemon
+2025-11-09 17:23:02 - valutatrade - INFO - Завершение работы приложения
+2025-11-09 17:23:25 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-09 17:23:38,921", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:23:38 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:23:38,922", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:23:38 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:23:38,922", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:23:38 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:23:38,925", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.002}
+2025-11-09 17:23:38 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:23:38,926", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.003}
+2025-11-09 17:23:38 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:23:38,926", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:23:38 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:23:38,927", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:23:38 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:23:38,927", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.006}
+2025-11-09 17:23:38 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-09 17:23:57,114", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса валют", "action": "Получение курса валют", "user": "lemon", "user_id": 3}
+2025-11-09 17:23:57 - valutatrade - INFO - Начало действия: Получение курса валют
+{"timestamp": "2025-11-09 17:23:57,115", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса валют", "action": "Получение курса валют", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:23:57 - valutatrade - INFO - Действие завершено: Получение курса валют
+2025-11-09 17:24:04 - valutatrade - INFO - Завершение сессии пользователя: lemon
+2025-11-09 17:24:04 - valutatrade - INFO - Завершение работы приложения
+2025-11-09 17:42:23 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-09 17:42:55,124", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:42:55 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:42:55,125", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:42:55 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:42:55,126", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:42:55 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:42:55,129", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.003}
+2025-11-09 17:42:55 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:42:55,129", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.004}
+2025-11-09 17:42:55 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:42:55,129", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:42:55 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:42:55,131", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:42:55 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:42:55,131", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.006}
+2025-11-09 17:42:55 - valutatrade - INFO - Действие завершено: Вход в систему
+{"timestamp": "2025-11-09 17:43:11,036", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_RATE", "action": "GET_RATE", "user": "lemon", "user_id": 3}
+2025-11-09 17:43:11 - valutatrade - INFO - Начало действия: GET_RATE
+{"timestamp": "2025-11-09 17:43:11,037", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение информации о курсе", "action": "Получение информации о курсе"}
+2025-11-09 17:43:11 - valutatrade - INFO - Начало действия: Получение информации о курсе
+{"timestamp": "2025-11-09 17:43:11,037", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса обмена", "action": "Получение курса обмена"}
+2025-11-09 17:43:11 - valutatrade - INFO - Начало действия: Получение курса обмена
+2025-11-09 17:43:11 - valutatrade - WARNING - Курс USD_EUR устарел (TTL: 300 сек)
+2025-11-09 17:43:11 - valutatrade - INFO - Запрос нового курса (TTL истек): USD_EUR
+2025-11-09 17:43:11 - valutatrade - INFO - Курс обновлен: USD_EUR = 0.927
+{"timestamp": "2025-11-09 17:43:11,042", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса обмена", "action": "Получение курса обмена", "result": "OK", "execution_time_sec": 0.004}
+2025-11-09 17:43:11 - valutatrade - INFO - Действие завершено: Получение курса обмена
+{"timestamp": "2025-11-09 17:43:11,043", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение информации о курсе", "action": "Получение информации о курсе", "result": "OK", "execution_time_sec": 0.005}
+2025-11-09 17:43:11 - valutatrade - INFO - Действие завершено: Получение информации о курсе
+{"timestamp": "2025-11-09 17:43:11,043", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_RATE", "action": "GET_RATE", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.007}
+2025-11-09 17:43:11 - valutatrade - INFO - Действие завершено: GET_RATE
+{"timestamp": "2025-11-09 17:43:30,566", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: BUY", "action": "BUY", "user": "lemon", "user_id": 3}
+2025-11-09 17:43:30 - valutatrade - INFO - Начало действия: BUY
+{"timestamp": "2025-11-09 17:43:30,567", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: BUY", "action": "BUY", "currency": "USD", "amount": 10.0}
+2025-11-09 17:43:30 - valutatrade - INFO - Начало действия: BUY
+{"timestamp": "2025-11-09 17:43:30,568", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:43:30 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:43:30,569", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:43:30 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:43:30,569", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Добавление валюты в портфель", "action": "Добавление валюты в портфель"}
+2025-11-09 17:43:30 - valutatrade - INFO - Начало действия: Добавление валюты в портфель
+{"timestamp": "2025-11-09 17:43:30,570", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Добавление валюты в портфель", "action": "Добавление валюты в портфель", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:43:30 - valutatrade - INFO - Действие завершено: Добавление валюты в портфель
+2025-11-09 17:43:30 - valutatrade - INFO - Начало транзакции: deposit
+2025-11-09 17:43:30 - valutatrade - INFO - Транзакция успешна: deposit
+{"timestamp": "2025-11-09 17:43:30,571", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Получение курса обмена", "action": "Получение курса обмена"}
+2025-11-09 17:43:30 - valutatrade - INFO - Начало действия: Получение курса обмена
+{"timestamp": "2025-11-09 17:43:30,572", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Получение курса обмена", "action": "Получение курса обмена", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:43:30 - valutatrade - INFO - Действие завершено: Получение курса обмена
+2025-11-09 17:43:30 - valutatrade - INFO - Покупка валюты: пользователь 3, 10.0 USD по курсу 1.0
+{"timestamp": "2025-11-09 17:43:30,576", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: BUY", "action": "BUY", "currency": "USD", "amount": 10.0, "rate": 1.0, "result": "OK", "execution_time_sec": 0.008}
+2025-11-09 17:43:30 - valutatrade - INFO - Действие завершено: BUY
+{"timestamp": "2025-11-09 17:43:30,577", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: BUY", "action": "BUY", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.01}
+2025-11-09 17:43:30 - valutatrade - INFO - Действие завершено: BUY
+{"timestamp": "2025-11-09 17:43:37,973", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Просмотр портфеля", "action": "Просмотр портфеля", "user": "lemon", "user_id": 3}
+2025-11-09 17:43:37 - valutatrade - INFO - Начало действия: Просмотр портфеля
+{"timestamp": "2025-11-09 17:43:37,973", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:43:37 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:43:37,974", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.0}
+2025-11-09 17:43:37 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:43:37,985", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Просмотр портфеля", "action": "Просмотр портфеля", "user": "lemon", "user_id": 3, "result": "OK", "execution_time_sec": 0.012}
+2025-11-09 17:43:37 - valutatrade - INFO - Действие завершено: Просмотр портфеля
+2025-11-09 17:43:45 - valutatrade - INFO - Запуск планировщика обновления курсов
+2025-11-09 17:43:45 - valutatrade - INFO - Планировщик запущен. Интервал: 5 мин
+{"timestamp": "2025-11-09 17:43:45,133", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES"}
+2025-11-09 17:43:45 - valutatrade - INFO - Начало действия: UPDATE_RATES
+2025-11-09 17:43:45 - valutatrade - INFO - Запуск обновления курсов валют...
+2025-11-09 17:43:45 - valutatrade - INFO - Получение данных от coingecko...
+2025-11-09 17:43:45 - valutatrade - INFO - Получение курсов криптовалют от CoinGecko...
+2025-11-09 17:43:47 - valutatrade - INFO - Получено 9 крипто курсов от CoinGecko
+2025-11-09 17:43:47 - valutatrade - INFO - coingecko: получено 9 курсов
+2025-11-09 17:43:47 - valutatrade - INFO - Получение данных от exchangerate...
+2025-11-09 17:43:47 - valutatrade - INFO - Получение курсов фиатных валют от ExchangeRate-API...
+2025-11-09 17:43:57 - valutatrade - WARNING - Ошибка запроса (попытка 1): HTTPSConnectionPool(host='v6.exchangerate-api.com', port=443): Read timed out. (read timeout=10)
+2025-11-09 17:44:06 - valutatrade - INFO - Остановка планировщика обновления курсов
+2025-11-09 17:44:06 - valutatrade - INFO - Получено 0 фиатных курсов от ExchangeRate-API
+2025-11-09 17:44:06 - valutatrade - INFO - exchangerate: получено 0 курсов
+2025-11-09 17:44:06 - valutatrade - INFO - Обновлен кеш курсов: 9 пар
+2025-11-09 17:44:06 - valutatrade - INFO - Обновлен кеш курсов: 9 пар
+2025-11-09 17:44:06 - valutatrade - INFO - Сохранено 9 курсов в кеш
+2025-11-09 17:44:06 - valutatrade - INFO - Обновление завершено успешно. Обработано источников: 2, Получено курсов: 9, Обновлено пар: 9
+{"timestamp": "2025-11-09 17:44:06,570", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "result": "OK", "execution_time_sec": 21.438}
+2025-11-09 17:44:06 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-09 17:44:06 - valutatrade - INFO - Планировщик остановлен
+2025-11-09 17:47:52 - valutatrade - INFO - Завершение сессии пользователя: lemon
+2025-11-09 17:47:52 - valutatrade - INFO - Завершение работы приложения
+2025-11-09 17:48:48 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-09 17:49:04,799", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:49:04 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:49:04,800", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:49:04 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:49:04,801", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:49:04 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:49:04,803", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.002}
+2025-11-09 17:49:04 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:49:04,804", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.003}
+2025-11-09 17:49:04 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:49:04,805", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:49:04 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:49:04,806", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:49:04 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:49:04,807", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.007}
+2025-11-09 17:49:04 - valutatrade - INFO - Действие завершено: Вход в систему
+2025-11-09 17:50:09 - valutatrade - INFO - Завершение сессии пользователя: lemon
+2025-11-09 17:50:09 - valutatrade - INFO - Завершение работы приложения
+2025-11-09 17:50:16 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+2025-11-09 17:51:12 - valutatrade - INFO - Завершение работы приложения
+2025-11-09 17:54:27 - valutatrade - INFO - Запуск приложения Valutatrade Hub
+{"timestamp": "2025-11-09 17:54:38,717", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: Вход в систему", "action": "Вход в систему"}
+2025-11-09 17:54:38 - valutatrade - INFO - Начало действия: Вход в систему
+{"timestamp": "2025-11-09 17:54:38,718", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: LOGIN", "action": "LOGIN"}
+2025-11-09 17:54:38 - valutatrade - INFO - Начало действия: LOGIN
+{"timestamp": "2025-11-09 17:54:38,718", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_USER", "action": "GET_USER"}
+2025-11-09 17:54:38 - valutatrade - INFO - Начало действия: GET_USER
+{"timestamp": "2025-11-09 17:54:38,721", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_USER", "action": "GET_USER", "result": "OK", "execution_time_sec": 0.003}
+2025-11-09 17:54:38 - valutatrade - INFO - Действие завершено: GET_USER
+{"timestamp": "2025-11-09 17:54:38,722", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: LOGIN", "action": "LOGIN", "result": "OK", "execution_time_sec": 0.004}
+2025-11-09 17:54:38 - valutatrade - INFO - Действие завершено: LOGIN
+{"timestamp": "2025-11-09 17:54:38,723", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: GET_PORTFOLIO", "action": "GET_PORTFOLIO"}
+2025-11-09 17:54:38 - valutatrade - INFO - Начало действия: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:54:38,724", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: GET_PORTFOLIO", "action": "GET_PORTFOLIO", "result": "OK", "execution_time_sec": 0.001}
+2025-11-09 17:54:38 - valutatrade - INFO - Действие завершено: GET_PORTFOLIO
+{"timestamp": "2025-11-09 17:54:38,725", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: Вход в систему", "action": "Вход в систему", "result": "OK", "execution_time_sec": 0.008}
+2025-11-09 17:54:38 - valutatrade - INFO - Действие завершено: Вход в систему
+2025-11-09 17:54:44 - valutatrade - INFO - Запуск планировщика обновления курсов
+2025-11-09 17:54:44 - valutatrade - INFO - Планировщик запущен. Интервал: 5 мин
+{"timestamp": "2025-11-09 17:54:44,375", "level": "INFO", "logger": "valutatrade", "message": "Начало действия: UPDATE_RATES", "action": "UPDATE_RATES"}
+2025-11-09 17:54:44 - valutatrade - INFO - Начало действия: UPDATE_RATES
+2025-11-09 17:54:44 - valutatrade - INFO - Запуск обновления курсов валют...
+2025-11-09 17:54:44 - valutatrade - INFO - Получение данных от coingecko...
+2025-11-09 17:54:44 - valutatrade - INFO - Получение курсов криптовалют от CoinGecko...
+2025-11-09 17:54:46 - valutatrade - INFO - Получено 9 крипто курсов от CoinGecko
+2025-11-09 17:54:46 - valutatrade - INFO - coingecko: получено 9 курсов
+2025-11-09 17:54:46 - valutatrade - INFO - Получение данных от exchangerate...
+2025-11-09 17:54:46 - valutatrade - INFO - Получение курсов фиатных валют от ExchangeRate-API...
+2025-11-09 17:54:56 - valutatrade - WARNING - Ошибка запроса (попытка 1): HTTPSConnectionPool(host='v6.exchangerate-api.com', port=443): Read timed out. (read timeout=10)
+2025-11-09 17:55:03 - valutatrade - INFO - Получено 0 фиатных курсов от ExchangeRate-API
+2025-11-09 17:55:03 - valutatrade - INFO - exchangerate: получено 0 курсов
+2025-11-09 17:55:03 - valutatrade - INFO - Обновлен кеш курсов: 9 пар
+2025-11-09 17:55:03 - valutatrade - INFO - Обновлен кеш курсов: 9 пар
+2025-11-09 17:55:03 - valutatrade - INFO - Сохранено 9 курсов в кеш
+2025-11-09 17:55:03 - valutatrade - INFO - Обновление завершено успешно. Обработано источников: 2, Получено курсов: 9, Обновлено пар: 9
+{"timestamp": "2025-11-09 17:55:03,287", "level": "INFO", "logger": "valutatrade", "message": "Действие завершено: UPDATE_RATES", "action": "UPDATE_RATES", "result": "OK", "execution_time_sec": 18.912}
+2025-11-09 17:55:03 - valutatrade - INFO - Действие завершено: UPDATE_RATES
+2025-11-09 17:55:22 - valutatrade - INFO - Остановка планировщика обновления курсов
+2025-11-09 17:55:22 - valutatrade - INFO - Планировщик остановлен
+2025-11-09 17:57:28 - valutatrade - INFO - Завершение сессии пользователя: lemon
+2025-11-09 17:57:28 - valutatrade - INFO - Завершение работы приложения

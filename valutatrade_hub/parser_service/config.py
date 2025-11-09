@@ -65,7 +65,7 @@ class ParserConfig:
         """Проверяет корректность конфигурации"""
         issues = []
 
-        if cls.EXCHANGERATE_API_KEY == '935b702352e0c8d731dae5e3':
+        if cls.EXCHANGERATE_API_KEY:
             issues.append("ExchangeRate-API ключ не настроен")
 
         if not cls.FIAT_CURRENCIES:

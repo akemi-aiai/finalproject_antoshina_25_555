@@ -1,69 +1,54 @@
 {
   "pairs": {
     "BNB_USD": {
-      "rate": 964.7,
-      "updated_at": "2025-11-07T08:50:40.133758+00:00",
+      "rate": 988.18,
+      "updated_at": "2025-11-09T09:54:46.437723+00:00",
       "source": "coingecko"
     },
     "BTC_USD": {
-      "rate": 101486,
-      "updated_at": "2025-11-07T08:50:40.133840+00:00",
+      "rate": 101694,
+      "updated_at": "2025-11-09T09:54:46.437848+00:00",
       "source": "coingecko"
     },
     "ADA_USD": {
-      "rate": 0.546379,
-      "updated_at": "2025-11-07T08:50:40.133872+00:00",
+      "rate": 0.554807,
+      "updated_at": "2025-11-09T09:54:46.437891+00:00",
       "source": "coingecko"
     },
     "DOGE_USD": {
-      "rate": 0.166067,
-      "updated_at": "2025-11-07T08:50:40.133896+00:00",
+      "rate": 0.17382,
+      "updated_at": "2025-11-09T09:54:46.437913+00:00",
       "source": "coingecko"
     },
     "ETH_USD": {
-      "rate": 3336.21,
-      "updated_at": "2025-11-07T08:50:40.133918+00:00",
+      "rate": 3403.99,
+      "updated_at": "2025-11-09T09:54:46.437930+00:00",
       "source": "coingecko"
     },
     "LTC_USD": {
-      "rate": 90.0,
-      "updated_at": "2025-11-07T08:50:40.133939+00:00",
+      "rate": 100.08,
+      "updated_at": "2025-11-09T09:54:46.437946+00:00",
       "source": "coingecko"
     },
     "DOT_USD": {
-      "rate": 2.83,
-      "updated_at": "2025-11-07T08:50:40.133960+00:00",
+      "rate": 3.08,
+      "updated_at": "2025-11-09T09:54:46.437962+00:00",
       "source": "coingecko"
     },
     "XRP_USD": {
-      "rate": 2.22,
-      "updated_at": "2025-11-07T08:50:40.133980+00:00",
+      "rate": 2.27,
+      "updated_at": "2025-11-09T09:54:46.437978+00:00",
       "source": "coingecko"
     },
     "SOL_USD": {
-      "rate": 157.03,
-      "updated_at": "2025-11-07T08:50:40.133999+00:00",
+      "rate": 158.58,
+      "updated_at": "2025-11-09T09:54:46.437992+00:00",
       "source": "coingecko"
     }
   },
-  "last_refresh": "2025-11-07T16:56:02.427448",
+  "last_refresh": "2025-11-09T09:55:03.285292+00:00",
   "metadata": {
     "total_pairs": 9,
     "source": "ParserService"
-  },
-  "rates": {
-    "EUR_USD": {
-      "rate": 1.0786,
-      "updated_at": "2025-11-07T16:54:06.891477"
-    },
-    "BTC_ETH": {
-      "rate": 15.95,
-      "updated_at": "2025-11-07T16:55:32.398117"
-    },
-    "EUR_BTC": {
-      "rate": 1.56e-05,
-      "updated_at": "2025-11-07T16:56:02.427426"
-    }
-  },
-  "source": "StubService"
+  }
 }

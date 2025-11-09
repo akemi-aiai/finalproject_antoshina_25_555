@@ -12,5 +12,12 @@
     "hashed_password": "c6d0e6c876d4f304abd130aa376829f94489af1c07e235dea3cf37de00e85022",
     "salt": "058512658622896b",
     "registration_date": "2025-11-07T16:53:40.656897"
+  },
+  {
+    "user_id": 3,
+    "username": "lemon",
+    "hashed_password": "44c53becd347c3c88e14b076d14295af18ed02be307859e8cf74f9beb3c6292b",
+    "salt": "8f85df70bf16b006",
+    "registration_date": "2025-11-09T17:13:01.561493"
   }
 ]
